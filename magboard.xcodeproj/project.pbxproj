@@ -39,18 +39,18 @@
 		775E8B64160B828A00E372DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		775E8B66160B828A00E372DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		775E8B68160B828A00E372DC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		775E8B6C160B828A00E372DC /* magboard-Info.plist */ = {isa = PBXFileReference; path = "magboard-Info.plist"; sourceTree = "<group>"; };
+		775E8B6C160B828A00E372DC /* magboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "magboard-Info.plist"; sourceTree = "<group>"; };
 		775E8B6E160B828A00E372DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		775E8B70160B828A00E372DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		775E8B72160B828A00E372DC /* magboard-Prefix.pch */ = {isa = PBXFileReference; path = "magboard-Prefix.pch"; sourceTree = "<group>"; };
-		775E8B73160B828A00E372DC /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		775E8B72160B828A00E372DC /* magboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "magboard-Prefix.pch"; sourceTree = "<group>"; };
+		775E8B73160B828A00E372DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		775E8B74160B828A00E372DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		775E8B77160B828A00E372DC /* magboard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = magboard.xcdatamodel; sourceTree = "<group>"; };
 		775E8B7E160B828A00E372DC /* magboardTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = magboardTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		775E8B7F160B828A00E372DC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		775E8B88160B828A00E372DC /* magboardTests-Info.plist */ = {isa = PBXFileReference; path = "magboardTests-Info.plist"; sourceTree = "<group>"; };
+		775E8B88160B828A00E372DC /* magboardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "magboardTests-Info.plist"; sourceTree = "<group>"; };
 		775E8B8A160B828A00E372DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		775E8B8C160B828A00E372DC /* magboardTests.h */ = {isa = PBXFileReference; path = magboardTests.h; sourceTree = "<group>"; };
+		775E8B8C160B828A00E372DC /* magboardTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = magboardTests.h; sourceTree = "<group>"; };
 		775E8B8D160B828A00E372DC /* magboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = magboardTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
