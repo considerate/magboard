@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		775E8B63160B828A00E372DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B62160B828A00E372DC /* UIKit.framework */; };
+		775E8B65160B828A00E372DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B64160B828A00E372DC /* Foundation.framework */; };
+		775E8B67160B828A00E372DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B66160B828A00E372DC /* CoreGraphics.framework */; };
+		775E8B69160B828A00E372DC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B68160B828A00E372DC /* CoreData.framework */; };
+		775E8B6F160B828A00E372DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 775E8B6D160B828A00E372DC /* InfoPlist.strings */; };
+		775E8B71160B828A00E372DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B70160B828A00E372DC /* main.m */; };
+		775E8B75160B828A00E372DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B74160B828A00E372DC /* AppDelegate.m */; };
+		775E8B78160B828A00E372DC /* magboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B76160B828A00E372DC /* magboard.xcdatamodeld */; };
+		775E8B80160B828A00E372DC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B7F160B828A00E372DC /* SenTestingKit.framework */; };
+		775E8B81160B828A00E372DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B62160B828A00E372DC /* UIKit.framework */; };
+		775E8B82160B828A00E372DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B64160B828A00E372DC /* Foundation.framework */; };
+		775E8B83160B828A00E372DC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B68160B828A00E372DC /* CoreData.framework */; };
+		775E8B8B160B828A00E372DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 775E8B89160B828A00E372DC /* InfoPlist.strings */; };
+		775E8B8E160B828A00E372DC /* magboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B8D160B828A00E372DC /* magboardTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		775E8B84160B828A00E372DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 775E8B55160B828A00E372DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 775E8B5D160B828A00E372DC;
+			remoteInfo = magboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		775E8B5E160B828A00E372DC /* magboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		775E8B62160B828A00E372DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		775E8B64160B828A00E372DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		775E8B66160B828A00E372DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		775E8B68160B828A00E372DC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		775E8B6C160B828A00E372DC /* magboard-Info.plist */ = {isa = PBXFileReference; path = "magboard-Info.plist"; sourceTree = "<group>"; };
+		775E8B6E160B828A00E372DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		775E8B70160B828A00E372DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		775E8B72160B828A00E372DC /* magboard-Prefix.pch */ = {isa = PBXFileReference; path = "magboard-Prefix.pch"; sourceTree = "<group>"; };
+		775E8B73160B828A00E372DC /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		775E8B74160B828A00E372DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		775E8B77160B828A00E372DC /* magboard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = magboard.xcdatamodel; sourceTree = "<group>"; };
+		775E8B7E160B828A00E372DC /* magboardTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = magboardTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		775E8B7F160B828A00E372DC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		775E8B88160B828A00E372DC /* magboardTests-Info.plist */ = {isa = PBXFileReference; path = "magboardTests-Info.plist"; sourceTree = "<group>"; };
+		775E8B8A160B828A00E372DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		775E8B8C160B828A00E372DC /* magboardTests.h */ = {isa = PBXFileReference; path = magboardTests.h; sourceTree = "<group>"; };
+		775E8B8D160B828A00E372DC /* magboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = magboardTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		775E8B5B160B828A00E372DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775E8B63160B828A00E372DC /* UIKit.framework in Frameworks */,
+				775E8B65160B828A00E372DC /* Foundation.framework in Frameworks */,
+				775E8B67160B828A00E372DC /* CoreGraphics.framework in Frameworks */,
+				775E8B69160B828A00E372DC /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		775E8B7A160B828A00E372DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775E8B80160B828A00E372DC /* SenTestingKit.framework in Frameworks */,
+				775E8B81160B828A00E372DC /* UIKit.framework in Frameworks */,
+				775E8B82160B828A00E372DC /* Foundation.framework in Frameworks */,
+				775E8B83160B828A00E372DC /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		775E8B53160B828A00E372DC = {
+			isa = PBXGroup;
+			children = (
+				775E8B6A160B828A00E372DC /* magboard */,
+				775E8B86160B828A00E372DC /* magboardTests */,
+				775E8B61160B828A00E372DC /* Frameworks */,
+				775E8B5F160B828A00E372DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		775E8B5F160B828A00E372DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				775E8B5E160B828A00E372DC /* magboard.app */,
+				775E8B7E160B828A00E372DC /* magboardTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		775E8B61160B828A00E372DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				775E8B62160B828A00E372DC /* UIKit.framework */,
+				775E8B64160B828A00E372DC /* Foundation.framework */,
+				775E8B66160B828A00E372DC /* CoreGraphics.framework */,
+				775E8B68160B828A00E372DC /* CoreData.framework */,
+				775E8B7F160B828A00E372DC /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		775E8B6A160B828A00E372DC /* magboard */ = {
+			isa = PBXGroup;
+			children = (
+				775E8B73160B828A00E372DC /* AppDelegate.h */,
+				775E8B74160B828A00E372DC /* AppDelegate.m */,
+				775E8B76160B828A00E372DC /* magboard.xcdatamodeld */,
+				775E8B6B160B828A00E372DC /* Supporting Files */,
+			);
+			path = magboard;
+			sourceTree = "<group>";
+		};
+		775E8B6B160B828A00E372DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				775E8B6C160B828A00E372DC /* magboard-Info.plist */,
+				775E8B6D160B828A00E372DC /* InfoPlist.strings */,
+				775E8B70160B828A00E372DC /* main.m */,
+				775E8B72160B828A00E372DC /* magboard-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		775E8B86160B828A00E372DC /* magboardTests */ = {
+			isa = PBXGroup;
+			children = (
+				775E8B8C160B828A00E372DC /* magboardTests.h */,
+				775E8B8D160B828A00E372DC /* magboardTests.m */,
+				775E8B87160B828A00E372DC /* Supporting Files */,
+			);
+			path = magboardTests;
+			sourceTree = "<group>";
+		};
+		775E8B87160B828A00E372DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				775E8B88160B828A00E372DC /* magboardTests-Info.plist */,
+				775E8B89160B828A00E372DC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		775E8B5D160B828A00E372DC /* magboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 775E8B91160B828A00E372DC /* Build configuration list for PBXNativeTarget "magboard" */;
+			buildPhases = (
+				775E8B5A160B828A00E372DC /* Sources */,
+				775E8B5B160B828A00E372DC /* Frameworks */,
+				775E8B5C160B828A00E372DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = magboard;
+			productName = magboard;
+			productReference = 775E8B5E160B828A00E372DC /* magboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		775E8B7D160B828A00E372DC /* magboardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 775E8B94160B828A00E372DC /* Build configuration list for PBXNativeTarget "magboardTests" */;
+			buildPhases = (
+				775E8B79160B828A00E372DC /* Sources */,
+				775E8B7A160B828A00E372DC /* Frameworks */,
+				775E8B7B160B828A00E372DC /* Resources */,
+				775E8B7C160B828A00E372DC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				775E8B85160B828A00E372DC /* PBXTargetDependency */,
+			);
+			name = magboardTests;
+			productName = magboardTests;
+			productReference = 775E8B7E160B828A00E372DC /* magboardTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		775E8B55160B828A00E372DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = Gripenskolan;
+			};
+			buildConfigurationList = 775E8B58160B828A00E372DC /* Build configuration list for PBXProject "magboard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 775E8B53160B828A00E372DC;
+			productRefGroup = 775E8B5F160B828A00E372DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				775E8B5D160B828A00E372DC /* magboard */,
+				775E8B7D160B828A00E372DC /* magboardTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		775E8B5C160B828A00E372DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775E8B6F160B828A00E372DC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		775E8B7B160B828A00E372DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775E8B8B160B828A00E372DC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		775E8B7C160B828A00E372DC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		775E8B5A160B828A00E372DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775E8B71160B828A00E372DC /* main.m in Sources */,
+				775E8B75160B828A00E372DC /* AppDelegate.m in Sources */,
+				775E8B78160B828A00E372DC /* magboard.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		775E8B79160B828A00E372DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775E8B8E160B828A00E372DC /* magboardTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		775E8B85160B828A00E372DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 775E8B5D160B828A00E372DC /* magboard */;
+			targetProxy = 775E8B84160B828A00E372DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		775E8B6D160B828A00E372DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				775E8B6E160B828A00E372DC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		775E8B89160B828A00E372DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				775E8B8A160B828A00E372DC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		775E8B8F160B828A00E372DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		775E8B90160B828A00E372DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		775E8B92160B828A00E372DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "magboard/magboard-Prefix.pch";
+				INFOPLIST_FILE = "magboard/magboard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		775E8B93160B828A00E372DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "magboard/magboard-Prefix.pch";
+				INFOPLIST_FILE = "magboard/magboard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		775E8B95160B828A00E372DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/magboard.app/magboard";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "magboard/magboard-Prefix.pch";
+				INFOPLIST_FILE = "magboardTests/magboardTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		775E8B96160B828A00E372DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/magboard.app/magboard";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "magboard/magboard-Prefix.pch";
+				INFOPLIST_FILE = "magboardTests/magboardTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		775E8B58160B828A00E372DC /* Build configuration list for PBXProject "magboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				775E8B8F160B828A00E372DC /* Debug */,
+				775E8B90160B828A00E372DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		775E8B91160B828A00E372DC /* Build configuration list for PBXNativeTarget "magboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				775E8B92160B828A00E372DC /* Debug */,
+				775E8B93160B828A00E372DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		775E8B94160B828A00E372DC /* Build configuration list for PBXNativeTarget "magboardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				775E8B95160B828A00E372DC /* Debug */,
+				775E8B96160B828A00E372DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		775E8B76160B828A00E372DC /* magboard.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				775E8B77160B828A00E372DC /* magboard.xcdatamodel */,
+			);
+			currentVersion = 775E8B77160B828A00E372DC /* magboard.xcdatamodel */;
+			path = magboard.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 775E8B55160B828A00E372DC /* Project object */;
+}
