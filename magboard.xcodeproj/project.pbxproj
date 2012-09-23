@@ -21,7 +21,8 @@
 		775E8B83160B828A00E372DC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B68160B828A00E372DC /* CoreData.framework */; };
 		775E8B8B160B828A00E372DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 775E8B89160B828A00E372DC /* InfoPlist.strings */; };
 		775E8B8E160B828A00E372DC /* magboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B8D160B828A00E372DC /* magboardTests.m */; };
-		89DA3A9F160B86F9002EB803 /* Bum.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DA3A9E160B86F9002EB803 /* Bum.m */; };
+		8917EFF8160EA2E00063E9C5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917EFF7160EA2E00063E9C5 /* RootViewController.m */; };
+		8917EFFB160EA6150063E9C5 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8917EFFA160EA6150063E9C5 /* iPhone.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +54,9 @@
 		775E8B8A160B828A00E372DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		775E8B8C160B828A00E372DC /* magboardTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = magboardTests.h; sourceTree = "<group>"; };
 		775E8B8D160B828A00E372DC /* magboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = magboardTests.m; sourceTree = "<group>"; };
-		89DA3A9D160B86F9002EB803 /* Bum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bum.h; path = magboard/Bum.h; sourceTree = "<group>"; };
-		89DA3A9E160B86F9002EB803 /* Bum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bum.m; path = magboard/Bum.m; sourceTree = "<group>"; };
+		8917EFF6160EA2E00063E9C5 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		8917EFF7160EA2E00063E9C5 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		8917EFFA160EA6150063E9C5 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhone.storyboard; path = ../iPhone.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +88,6 @@
 		775E8B53160B828A00E372DC = {
 			isa = PBXGroup;
 			children = (
-				89DA3A9D160B86F9002EB803 /* Bum.h */,
-				89DA3A9E160B86F9002EB803 /* Bum.m */,
 				775E8B6A160B828A00E372DC /* magboard */,
 				775E8B86160B828A00E372DC /* magboardTests */,
 				775E8B61160B828A00E372DC /* Frameworks */,
@@ -119,6 +119,9 @@
 		775E8B6A160B828A00E372DC /* magboard */ = {
 			isa = PBXGroup;
 			children = (
+				8917EFFA160EA6150063E9C5 /* iPhone.storyboard */,
+				8917EFF6160EA2E00063E9C5 /* RootViewController.h */,
+				8917EFF7160EA2E00063E9C5 /* RootViewController.m */,
 				775E8B73160B828A00E372DC /* AppDelegate.h */,
 				775E8B74160B828A00E372DC /* AppDelegate.m */,
 				775E8B76160B828A00E372DC /* magboard.xcdatamodeld */,
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				775E8B6F160B828A00E372DC /* InfoPlist.strings in Resources */,
+				8917EFFB160EA6150063E9C5 /* iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +270,7 @@
 				775E8B71160B828A00E372DC /* main.m in Sources */,
 				775E8B75160B828A00E372DC /* AppDelegate.m in Sources */,
 				775E8B78160B828A00E372DC /* magboard.xcdatamodeld in Sources */,
-				89DA3A9F160B86F9002EB803 /* Bum.m in Sources */,
+				8917EFF8160EA2E00063E9C5 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
