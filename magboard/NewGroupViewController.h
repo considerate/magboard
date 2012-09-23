@@ -1,5 +1,5 @@
 //
-//  NewGroupTypeViewController.h
+//  NewGroupViewController.h
 //  magboard
 //
 //  Created by Jocelyn Clifford-Frith on 23/09/2012.
@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewGroupTypeViewController : UIViewController {
+@interface NewGroupViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
     
     IBOutlet UITextField *textField;
+    IBOutlet UIPickerView *pickerView;
 }
 
-- (IBAction)addGroupType:(id)sender;
+- (IBAction)addGroup:(id)sender;
 - (IBAction)cancel:(id)sender;
 
 @end

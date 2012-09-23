@@ -8,6 +8,7 @@
 
 #import "NewGroupTypeViewController.h"
 #import "RootViewController.h"
+#import "GroupType.h"
 
 @interface NewGroupTypeViewController ()
 
@@ -49,7 +50,7 @@
     
     RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
     
-    GroupType *newGroupType = (GroupType *)[NSEntityDescription entityForName:@"GroupType" inManagedObjectContext:rootViewController.managedObjectContext];
+    GroupType *newGroupType = (GroupType *)[NSEntityDescription insertNewObjectForEntityForName:@"GroupType" inManagedObjectContext:rootViewController.managedObjectContext];
     newGroupType.name = [textField text];
     
     // Save to persistent store
