@@ -1,20 +1,21 @@
 //
-//  NewGroupViewController.m
+//  NewTaskViewController.m
 //  magboard
 //
 //  Created by Jocelyn Clifford-Frith on 23/09/2012.
 //  Copyright (c) 2012 Gripenskolan. All rights reserved.
 //
 
-#import "NewGroupViewController.h"
+#import "NewTaskViewController.h"
 #import "RootViewController.h"
 #import "Group.h"
+#import "Task.h"
 
-@interface NewGroupViewController ()
+@interface NewTaskViewController ()
 
 @end
 
-@implementation NewGroupViewController
+@implementation NewTaskViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +30,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    groupsForSortingType = [rootViewController.sortByGroupType.groups sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 }
 
 - (void)viewDidUnload
@@ -42,7 +47,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)addGroup:(id)sender
+- (IBAction)addTask:(id)sender
 {
     // Can't create group with no name;
     if ([[textField text] length]==0)
@@ -50,9 +55,10 @@
     
     RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
     
-    Group *newGroup = (Group *)[NSEntityDescription insertNewObjectForEntityForName:@"Group" inManagedObjectContext:rootViewController.managedObjectContext];
-    newGroup.name = [textField text];
-    newGroup.type = [rootViewController.groupTypes objectAtIndex:[pickerView selectedRowInComponent:0]];
+    Task *newTask = (Task *)[NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:rootViewController.managedObjectContext];
+    newTask.name = [textField text];
+    Group *group = [groupsForSortingType objectAtIndex:[pickerView selectedRowInComponent:0]];
+    [newTask addGroupsObject:group];
     
     
     // Save to persistent store
@@ -61,8 +67,7 @@
         // Handle the error.
     }
     
-    // Add to view
-    [rootViewController makeViewForGroup:newGroup];
+    [rootViewController makeViewForTask:newTask withGroup:group];
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -81,15 +86,12 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
-    return [rootViewController.groupTypes count];
+    return [groupsForSortingType count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
-    GroupType *groupType = [rootViewController.groupTypes objectAtIndex:row];
-    return groupType.name;
+    return [(Group *)[groupsForSortingType objectAtIndex:row] name];
 }
 
 @end

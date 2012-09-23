@@ -35,5 +35,10 @@
     CGContextFillPath(context);
 }
 
+- (BOOL)isOpaque
+{
+    return NO;
+}
+
 
 @end

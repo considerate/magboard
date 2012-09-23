@@ -33,6 +33,13 @@
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     CGContextAddEllipseInRect(context, self.bounds);
     CGContextStrokePath(context);
+    
+    [super drawRect:rect];
+}
+
+- (BOOL)isOpaque
+{
+    return NO;
 }
 
 

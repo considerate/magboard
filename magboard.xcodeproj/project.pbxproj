@@ -21,6 +21,9 @@
 		775E8B83160B828A00E372DC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B68160B828A00E372DC /* CoreData.framework */; };
 		775E8B8B160B828A00E372DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 775E8B89160B828A00E372DC /* InfoPlist.strings */; };
 		775E8B8E160B828A00E372DC /* magboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B8D160B828A00E372DC /* magboardTests.m */; };
+		891744AC160F2A70000CBB62 /* KeyValuePair.m in Sources */ = {isa = PBXBuildFile; fileRef = 891744AB160F2A70000CBB62 /* KeyValuePair.m */; };
+		891744AF160F3500000CBB62 /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891744AE160F3500000CBB62 /* NewTaskViewController.m */; };
+		891744B2160F35C2000CBB62 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 891744B1160F35C1000CBB62 /* Task.m */; };
 		8917EFF8160EA2E00063E9C5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917EFF7160EA2E00063E9C5 /* RootViewController.m */; };
 		8917EFFB160EA6150063E9C5 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8917EFFA160EA6150063E9C5 /* iPhone.storyboard */; };
 		8917EFFE160EBC950063E9C5 /* MagnetBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917EFFD160EBC950063E9C5 /* MagnetBoardView.m */; };
@@ -61,6 +64,12 @@
 		775E8B8A160B828A00E372DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		775E8B8C160B828A00E372DC /* magboardTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = magboardTests.h; sourceTree = "<group>"; };
 		775E8B8D160B828A00E372DC /* magboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = magboardTests.m; sourceTree = "<group>"; };
+		891744AA160F2A70000CBB62 /* KeyValuePair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValuePair.h; sourceTree = "<group>"; };
+		891744AB160F2A70000CBB62 /* KeyValuePair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValuePair.m; sourceTree = "<group>"; };
+		891744AD160F3500000CBB62 /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
+		891744AE160F3500000CBB62 /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
+		891744B0160F35C1000CBB62 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		891744B1160F35C1000CBB62 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		8917EFF6160EA2E00063E9C5 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		8917EFF7160EA2E00063E9C5 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		8917EFFA160EA6150063E9C5 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhone.storyboard; path = ../iPhone.storyboard; sourceTree = "<group>"; };
@@ -140,11 +149,13 @@
 		775E8B6A160B828A00E372DC /* magboard */ = {
 			isa = PBXGroup;
 			children = (
-				8917EFFA160EA6150063E9C5 /* iPhone.storyboard */,
+				891744A8160F2703000CBB62 /* Interface */,
 				898E7AFE160EE86A0065FA4E /* NewGroupTypeViewController.h */,
 				898E7AFF160EE86A0065FA4E /* NewGroupTypeViewController.m */,
 				898E7B01160EFD790065FA4E /* NewGroupViewController.h */,
 				898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */,
+				891744AD160F3500000CBB62 /* NewTaskViewController.h */,
+				891744AE160F3500000CBB62 /* NewTaskViewController.m */,
 				8917F002160EBD480063E9C5 /* Views */,
 				8917EFF6160EA2E00063E9C5 /* RootViewController.h */,
 				8917EFF7160EA2E00063E9C5 /* RootViewController.m */,
@@ -153,6 +164,8 @@
 				775E8B76160B828A00E372DC /* magboard.xcdatamodeld */,
 				898E7AFD160EE2FA0065FA4E /* Data */,
 				775E8B6B160B828A00E372DC /* Supporting Files */,
+				891744AA160F2A70000CBB62 /* KeyValuePair.h */,
+				891744AB160F2A70000CBB62 /* KeyValuePair.m */,
 			);
 			path = magboard;
 			sourceTree = "<group>";
@@ -187,6 +200,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		891744A8160F2703000CBB62 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				8917EFFA160EA6150063E9C5 /* iPhone.storyboard */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
 		8917F002160EBD480063E9C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +224,8 @@
 		898E7AFD160EE2FA0065FA4E /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				891744B0160F35C1000CBB62 /* Task.h */,
+				891744B1160F35C1000CBB62 /* Task.m */,
 				898E7B04160EFE9C0065FA4E /* Group.h */,
 				898E7B05160EFE9C0065FA4E /* Group.m */,
 				898E7AF9160EE2F30065FA4E /* GroupType.h */,
@@ -329,6 +352,9 @@
 				898E7B00160EE86A0065FA4E /* NewGroupTypeViewController.m in Sources */,
 				898E7B03160EFD7A0065FA4E /* NewGroupViewController.m in Sources */,
 				898E7B06160EFE9C0065FA4E /* Group.m in Sources */,
+				891744AC160F2A70000CBB62 /* KeyValuePair.m in Sources */,
+				891744AF160F3500000CBB62 /* NewTaskViewController.m in Sources */,
+				891744B2160F35C2000CBB62 /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
