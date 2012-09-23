@@ -23,6 +23,9 @@
 		775E8B8E160B828A00E372DC /* magboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B8D160B828A00E372DC /* magboardTests.m */; };
 		8917EFF8160EA2E00063E9C5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917EFF7160EA2E00063E9C5 /* RootViewController.m */; };
 		8917EFFB160EA6150063E9C5 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8917EFFA160EA6150063E9C5 /* iPhone.storyboard */; };
+		8917EFFE160EBC950063E9C5 /* MagnetBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917EFFD160EBC950063E9C5 /* MagnetBoardView.m */; };
+		8917F001160EBD330063E9C5 /* MagnetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917F000160EBD330063E9C5 /* MagnetView.m */; };
+		8917F005160EBD6F0063E9C5 /* MarkerPenGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917F004160EBD6F0063E9C5 /* MarkerPenGroupView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,12 @@
 		8917EFF6160EA2E00063E9C5 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		8917EFF7160EA2E00063E9C5 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		8917EFFA160EA6150063E9C5 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhone.storyboard; path = ../iPhone.storyboard; sourceTree = "<group>"; };
+		8917EFFC160EBC950063E9C5 /* MagnetBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagnetBoardView.h; sourceTree = "<group>"; };
+		8917EFFD160EBC950063E9C5 /* MagnetBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagnetBoardView.m; sourceTree = "<group>"; };
+		8917EFFF160EBD330063E9C5 /* MagnetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagnetView.h; sourceTree = "<group>"; };
+		8917F000160EBD330063E9C5 /* MagnetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagnetView.m; sourceTree = "<group>"; };
+		8917F003160EBD6F0063E9C5 /* MarkerPenGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerPenGroupView.h; sourceTree = "<group>"; };
+		8917F004160EBD6F0063E9C5 /* MarkerPenGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerPenGroupView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				8917EFFA160EA6150063E9C5 /* iPhone.storyboard */,
+				8917F002160EBD480063E9C5 /* Views */,
 				8917EFF6160EA2E00063E9C5 /* RootViewController.h */,
 				8917EFF7160EA2E00063E9C5 /* RootViewController.m */,
 				775E8B73160B828A00E372DC /* AppDelegate.h */,
@@ -158,6 +168,19 @@
 				775E8B89160B828A00E372DC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8917F002160EBD480063E9C5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8917EFFC160EBC950063E9C5 /* MagnetBoardView.h */,
+				8917EFFD160EBC950063E9C5 /* MagnetBoardView.m */,
+				8917EFFF160EBD330063E9C5 /* MagnetView.h */,
+				8917F000160EBD330063E9C5 /* MagnetView.m */,
+				8917F003160EBD6F0063E9C5 /* MarkerPenGroupView.h */,
+				8917F004160EBD6F0063E9C5 /* MarkerPenGroupView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +294,9 @@
 				775E8B75160B828A00E372DC /* AppDelegate.m in Sources */,
 				775E8B78160B828A00E372DC /* magboard.xcdatamodeld in Sources */,
 				8917EFF8160EA2E00063E9C5 /* RootViewController.m in Sources */,
+				8917EFFE160EBC950063E9C5 /* MagnetBoardView.m in Sources */,
+				8917F001160EBD330063E9C5 /* MagnetView.m in Sources */,
+				8917F005160EBD6F0063E9C5 /* MarkerPenGroupView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
