@@ -31,7 +31,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.groupTypeForAdding = [[GroupType alloc] init];
+    //self.groupTypeForAdding = [[GroupType alloc] init];
     
 }
 
@@ -54,7 +54,7 @@
     
     RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
     
-    self.groupTypeForAdding.name = [textField text];
+    //self.groupTypeForAdding.name = [textField text];
 }
 
 @end

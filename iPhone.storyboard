@@ -41,9 +41,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="delegate.grouptTypeForAdding.name" value=""/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="textField" destination="S9g-ND-MNA" id="pGO-x8-H3J"/>
@@ -96,6 +93,27 @@
             <point key="canvasLocation" x="50" y="90"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="MagnetBoardView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MagnetBoardView.h"/>
+        </class>
+        <class className="MagnetView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MagnetView.h"/>
+        </class>
+        <class className="MarkerPenGroupView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MarkerPenGroupView.h"/>
+        </class>
+        <class className="NewGroupTypeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewGroupTypeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addGroupType:"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="RootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
