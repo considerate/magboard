@@ -5,7 +5,7 @@
         <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="groups" inverseEntity="Task" syncable="YES"/>
         <relationship name="type" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="GroupType" inverseName="groups" inverseEntity="GroupType" syncable="YES"/>
     </entity>
-    <entity name="GroupType" syncable="YES">
+    <entity name="GroupType" representedClassName="GroupType" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="type" inverseEntity="Group" syncable="YES"/>
     </entity>
@@ -16,8 +16,8 @@
         <relationship name="groups" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="tasks" inverseEntity="Group" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Task" positionX="-153" positionY="120" width="128" height="105"/>
-        <element name="Group" positionX="27" positionY="126" width="128" height="90"/>
-        <element name="GroupType" positionX="207" positionY="135" width="128" height="75"/>
+        <element name="Task" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Group" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="GroupType" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

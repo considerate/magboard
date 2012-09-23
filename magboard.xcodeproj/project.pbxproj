@@ -26,6 +26,7 @@
 		8917EFFE160EBC950063E9C5 /* MagnetBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917EFFD160EBC950063E9C5 /* MagnetBoardView.m */; };
 		8917F001160EBD330063E9C5 /* MagnetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917F000160EBD330063E9C5 /* MagnetView.m */; };
 		8917F005160EBD6F0063E9C5 /* MarkerPenGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917F004160EBD6F0063E9C5 /* MarkerPenGroupView.m */; };
+		898E7AFB160EE2F30065FA4E /* GroupType.m in Sources */ = {isa = PBXBuildFile; fileRef = 898E7AFA160EE2F30065FA4E /* GroupType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		8917F000160EBD330063E9C5 /* MagnetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagnetView.m; sourceTree = "<group>"; };
 		8917F003160EBD6F0063E9C5 /* MarkerPenGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerPenGroupView.h; sourceTree = "<group>"; };
 		8917F004160EBD6F0063E9C5 /* MarkerPenGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerPenGroupView.m; sourceTree = "<group>"; };
+		898E7AF9160EE2F30065FA4E /* GroupType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupType.h; sourceTree = "<group>"; };
+		898E7AFA160EE2F30065FA4E /* GroupType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupType.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,7 @@
 				775E8B73160B828A00E372DC /* AppDelegate.h */,
 				775E8B74160B828A00E372DC /* AppDelegate.m */,
 				775E8B76160B828A00E372DC /* magboard.xcdatamodeld */,
+				898E7AFD160EE2FA0065FA4E /* Data */,
 				775E8B6B160B828A00E372DC /* Supporting Files */,
 			);
 			path = magboard;
@@ -181,6 +185,15 @@
 				8917F004160EBD6F0063E9C5 /* MarkerPenGroupView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		898E7AFD160EE2FA0065FA4E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				898E7AF9160EE2F30065FA4E /* GroupType.h */,
+				898E7AFA160EE2F30065FA4E /* GroupType.m */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +310,7 @@
 				8917EFFE160EBC950063E9C5 /* MagnetBoardView.m in Sources */,
 				8917F001160EBD330063E9C5 /* MagnetView.m in Sources */,
 				8917F005160EBD6F0063E9C5 /* MarkerPenGroupView.m in Sources */,
+				898E7AFB160EE2F30065FA4E /* GroupType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

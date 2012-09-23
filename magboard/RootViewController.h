@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GroupType.h"
 
-@interface RootViewController : UIViewController <NSFetchedResultsControllerDelegate>
+@interface RootViewController : UIViewController
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSMutableArray *groupTypes;
+@property (nonatomic, assign) GroupType *sortByGroupType;
 
 @end

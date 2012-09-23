@@ -15,6 +15,9 @@
 @implementation RootViewController
 
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize groupTypes = __groupTypes;
+@synthesize sortByGroupType = __sortByGroupType;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +32,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // Load in groupTypes from persistent store.
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"GroupType" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptors];
+    
+    NSError *error = nil;
+    NSMutableArray *mutableFetchResults = [[self.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    if (mutableFetchResults == nil) {
+        // Handle the error.
+    }
+    self.groupTypes = mutableFetchResults;
 }
 
 - (void)viewDidUnload
