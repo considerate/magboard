@@ -14,8 +14,7 @@
     IBOutlet UITextField *textField;
 }
 
-@property (nonatomic, retain) GroupType *groupTypeForAdding;
-
 - (IBAction)addGroupType:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 @end

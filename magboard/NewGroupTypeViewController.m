@@ -15,8 +15,6 @@
 
 @implementation NewGroupTypeViewController
 
-@synthesize groupTypeForAdding = __groupTypeForAdding;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,10 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    //self.groupTypeForAdding = [[GroupType alloc] init];
-    
+	// Do any additional setup after loading the view.    
 }
 
 - (void)viewDidUnload
@@ -54,7 +49,24 @@
     
     RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
     
-    //self.groupTypeForAdding.name = [textField text];
+    GroupType *newGroupType = (GroupType *)[NSEntityDescription entityForName:@"GroupType" inManagedObjectContext:rootViewController.managedObjectContext];
+    newGroupType.name = [textField text];
+    
+    // Save to persistent store
+    NSError *error = nil;
+    if (![rootViewController.managedObjectContext save:&error]) {
+        // Handle the error.
+    }
+    
+    // Add to rootViewController
+    [rootViewController.groupTypes addObject:newGroupType];
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)cancel:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end
