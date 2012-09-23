@@ -19,13 +19,21 @@
     return self;
 }
 
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // Simply draw a black cicle up to the view's bounds.
+    CGContextSetLineWidth(context, 2.0f);
+    CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
+    CGContextAddEllipseInRect(context, self.bounds);
+    CGContextFillPath(context);
 }
-*/
+
 
 @end
