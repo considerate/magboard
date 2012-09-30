@@ -15,20 +15,8 @@
 
 @synthesize window = _window;
 
-/*- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    //self.window.backgroundColor = [UIColor whiteColor];
-    //[self.window makeKeyAndVisible];
-    
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    if (!managedObjectContext) {
-        // Error! No managed object context!
-    }
-    RootViewController *rootViewController = (RootViewController *)self.window.rootViewController;
-    rootViewController.managedObjectContext = managedObjectContext;
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{    
     //TODO(considerate): remove these tests for CouchDB
         
     CouchTouchDBServer* server = [CouchTouchDBServer sharedInstance];
@@ -63,7 +51,7 @@
     [op start];
     
     return YES;
-}*/
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
