@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Group.h"
+//#import "Group.h"
 
 @interface MarkerPenGroupViewController : UIViewController {
     IBOutlet UILabel *nameLabel;
 }
 
-@property (nonatomic, retain) Group *group;
+//@property (nonatomic, retain) Group *group;
+@property (nonatomic, assign) NSUInteger groupID;
 
 @end

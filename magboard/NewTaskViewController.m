@@ -8,8 +8,8 @@
 
 #import "NewTaskViewController.h"
 #import "RootViewController.h"
-#import "Group.h"
-#import "Task.h"
+//#import "Group.h"
+//#import "Task.h"
 
 @interface NewTaskViewController ()
 
@@ -31,9 +31,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
+    /*RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    groupsForSortingType = [rootViewController.sortByGroupType.groups sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    groupsForSortingType = [rootViewController.sortByGroupType.groups sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];*/
 }
 
 - (void)viewDidUnload
@@ -53,7 +53,7 @@
     if ([[textField text] length]==0)
         return;
     
-    RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
+    /*RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
     
     Task *newTask = (Task *)[NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:rootViewController.managedObjectContext];
     newTask.name = [textField text];
@@ -69,7 +69,7 @@
     
     [rootViewController makeViewForTask:newTask withGroup:group];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissModalViewControllerAnimated:YES];*/
 }
 
 - (IBAction)cancel:(id)sender
@@ -91,7 +91,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [(Group *)[groupsForSortingType objectAtIndex:row] name];
+    return nil; //[(Group *)[groupsForSortingType objectAtIndex:row] name];
 }
 
 @end
