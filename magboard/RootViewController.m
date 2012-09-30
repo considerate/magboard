@@ -47,8 +47,9 @@
     
     // Display groups and add contollers
     NSArray *groupsToDisplay = [self.database groupsForGroupTypeID:self.sortByGroupTypeID];
-    for (NSDictionary *group in groupsToDisplay) {
-        [self makeControllerForGroupID:[[group objectForKey:@"id"] unsignedIntegerValue]];
+    for (NSUInteger i=0; i<[groupsToDisplay count]; i++) {
+        NSUInteger groupID = [[[groupsToDisplay objectAtIndex:i] objectForKey:@"id"] unsignedIntegerValue];
+        [self makeControllerForGroupID:groupID atIndex:i];
     }
 }
 
@@ -56,7 +57,7 @@
 #define GROUP_VIEW_DIAMETER 140.0f
 #define GROUP_VIEW_SPACING 150.0f
 
-- (void)makeControllerForGroupID: (NSUInteger)groupID
+- (void)makeControllerForGroupID: (NSUInteger)groupID atIndex: (NSUInteger)index
 {
     MarkerPenGroupViewController *controller = [[MarkerPenGroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
     controller.database = self.database;
@@ -65,7 +66,7 @@
     
     
     // Calculate column and row
-    int arrayIndex = groupID;
+    int arrayIndex = index;
     int x = arrayIndex%2;
     int y = arrayIndex/2;
     CGRect frame = CGRectMake(x*GROUP_VIEW_SPACING+10.0f, y*GROUP_VIEW_SPACING+80.0f, GROUP_VIEW_DIAMETER, GROUP_VIEW_DIAMETER);

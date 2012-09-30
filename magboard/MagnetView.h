@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MagnetView : UIView
+@interface MagnetView : UIView {
+    UILabel *_label;
+}
+
+- (void)setLabel:(NSString *)label;
 
 @end

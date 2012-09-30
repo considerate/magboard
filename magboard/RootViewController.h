@@ -14,6 +14,6 @@
 @property (nonatomic, retain) DumbyDatabase *database;
 @property (nonatomic, assign) NSUInteger sortByGroupTypeID;
 
-- (void)makeControllerForGroupID: (NSUInteger)groupID;
+- (void)makeControllerForGroupID: (NSUInteger)groupID atIndex: (NSUInteger)index;
 
 @end
