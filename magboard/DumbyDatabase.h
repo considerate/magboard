@@ -15,6 +15,7 @@
 
 - (NSArray *)groupTypes;
 - (NSArray *)groupsForGroupTypeID: (NSUInteger)groupTypeID;
+- (NSDictionary *)groupForID: (NSUInteger)groupID;
 - (NSArray *)tasksForGroupID: (NSUInteger)groupID;
 
 @end

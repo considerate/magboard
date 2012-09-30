@@ -9,7 +9,6 @@
 #import "RootViewController.h"
 #import "MarkerPenGroupView.h"
 #import "MagnetView.h"
-#import "KeyValuePair.h"
 #import "MarkerPenGroupViewController.h"
 
 @interface RootViewController ()
@@ -60,11 +59,13 @@
 - (void)makeControllerForGroupID: (NSUInteger)groupID
 {
     MarkerPenGroupViewController *controller = [[MarkerPenGroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
+    controller.database = self.database;
     controller.groupID = groupID;
     [self addChildViewController:controller];
     
+    
     // Calculate column and row
-    int arrayIndex = [groupViewPairs count];
+    int arrayIndex = groupID;
     int x = arrayIndex%2;
     int y = arrayIndex/2;
     CGRect frame = CGRectMake(x*GROUP_VIEW_SPACING+10.0f, y*GROUP_VIEW_SPACING+80.0f, GROUP_VIEW_DIAMETER, GROUP_VIEW_DIAMETER);
