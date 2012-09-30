@@ -18,9 +18,11 @@
 
 @implementation RootViewController
 
-@synthesize managedObjectContext = __managedObjectContext;
-@synthesize groupTypes = __groupTypes;
-@synthesize sortByGroupType = __sortByGroupType;
+//@synthesize managedObjectContext = __managedObjectContext;
+//@synthesize groupTypes = __groupTypes;
+//@synthesize sortByGroupType = __sortByGroupType;
+@synthesize database = __database;
+@synthesize sortByGroupTypeID = __sortByGroupTypeID;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,7 +40,7 @@
 	// Do any additional setup after loading the view.
     
     // Load in groupTypes from persistent store.
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    /*NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"GroupType" inManagedObjectContext:self.managedObjectContext];
     [request setEntity:entity];
     
@@ -50,17 +52,29 @@
     if (mutableFetchResults == nil) {
         // Handle the error.
     }
-    self.groupTypes = mutableFetchResults;
+    self.groupTypes = mutableFetchResults;*/
+    
+    self.database = [[DumbyDatabase alloc] init];
     
     // If it exists set the first GroupType as sortByType
-    if ([self.groupTypes count]>0) {
+    /*if ([self.groupTypes count]>0) {
         self.sortByGroupType = [self.groupTypes objectAtIndex:0];
+    }*/
+    NSArray *groupTypes = [self.database groupTypes];
+    if ([groupTypes count]>0) {
+        NSNumber *groupTypeID = [[groupTypes objectAtIndex:0] objectForKey:@"id"];
+        self.sortByGroupTypeID = [groupTypeID unsignedIntegerValue];
     }
     
-    groupViewPairs = [[NSMutableArray alloc] init];
+    /*groupViewPairs = [[NSMutableArray alloc] init];
     for (Group *group in self.sortByGroupType.groups) {
         //[self makeViewForGroup:group];
         [self makeControllerForGroup:group];
+    }*/
+    NSArray *IDsForGroupToDisplay = [[NSMutableArray alloc] init];
+    NSArray *groupsToDisplay = [self.database groupsForGroupTypeID:self.sortByGroupTypeID];
+    for (NSDictionary *group in groupsToDisplay) {
+        
     }
 }
 

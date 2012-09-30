@@ -54,6 +54,11 @@
     return self;
 }
 
+- (NSArray *)groupTypes
+{
+    return [_table objectForKey:@"GroupTypes"];
+}
+
 - (NSArray *)groupsForGroupTypeID: (NSUInteger)groupID
 {
     NSMutableArray *matchingTasks = [[NSMutableArray alloc] init];

@@ -13,6 +13,7 @@
     NSMutableDictionary *_table;
 }
 
+- (NSArray *)groupTypes;
 - (NSArray *)groupsForGroupTypeID: (NSUInteger)groupTypeID;
 - (NSArray *)tasksForGroupID: (NSUInteger)groupID;
 
