@@ -8,7 +8,7 @@
 
 #import "NewGroupViewController.h"
 #import "RootViewController.h"
-#import "Group.h"
+//#import "Group.h"
 
 @interface NewGroupViewController ()
 
@@ -48,7 +48,7 @@
     if ([[textField text] length]==0)
         return;
     
-    RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
+    /*RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
     
     Group *newGroup = (Group *)[NSEntityDescription insertNewObjectForEntityForName:@"Group" inManagedObjectContext:rootViewController.managedObjectContext];
     newGroup.name = [textField text];
@@ -62,7 +62,7 @@
     }
     
     // Add to view
-    [rootViewController makeViewForGroup:newGroup];
+    [rootViewController makeViewForGroup:newGroup];*/
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -81,15 +81,16 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
-    return [rootViewController.groupTypes count];
+    //RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
+    return 0; //[rootViewController.groupTypes count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
-    GroupType *groupType = [rootViewController.groupTypes objectAtIndex:row];
-    return groupType.name;
+    //RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
+    /*GroupType *groupType = [rootViewController.groupTypes objectAtIndex:row];
+    return groupType.name;*/
+    return nil;
 }
 
 @end

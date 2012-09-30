@@ -71,10 +71,9 @@
         //[self makeViewForGroup:group];
         [self makeControllerForGroup:group];
     }*/
-    NSArray *IDsForGroupToDisplay = [[NSMutableArray alloc] init];
     NSArray *groupsToDisplay = [self.database groupsForGroupTypeID:self.sortByGroupTypeID];
     for (NSDictionary *group in groupsToDisplay) {
-        
+        [self makeControllerForGroupID:[[group objectForKey:@"id"] unsignedIntegerValue]];
     }
 }
 
@@ -82,7 +81,7 @@
 #define GROUP_VIEW_DIAMETER 140.0f
 #define GROUP_VIEW_SPACING 150.0f
 
-- (void)makeViewForGroup:(Group *)group
+/*- (void)makeViewForGroup:(Group *)group
 {
     // Calculate column and row
     int arrayIndex = [groupViewPairs count];
@@ -107,13 +106,13 @@
     NSLog(@"tasks: %i",[group.tasks count]);
     
     [self.view addSubview:groupView];
-}
+}*/
 
 
 #define TASK_VIEW_DIAMETER 60.0f
 #define TASK_VIEW_SPACING 70.0f
 
-- (void)makeViewForTask:(Task *)task withGroup: (Group *)group
+/*- (void)makeViewForTask:(Task *)task withGroup: (Group *)group
 {
     // Search groupViewPairs for view
     MarkerPenGroupView *groupView = nil;
@@ -139,12 +138,20 @@
     [taskView addSubview:label];
     
     [groupView addSubview:taskView];
-}
+}*/
 
-- (void)makeControllerForGroup:(Group *)group
+/*- (void)makeControllerForGroup:(Group *)group
 {
     MarkerPenGroupViewController *controller = [[MarkerPenGroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
     controller.group = group;
+    [self addChildViewController:controller];
+    [self.view addSubview:controller.view];
+}*/
+
+- (void)makeControllerForGroupID: (NSUInteger)groupID
+{
+    MarkerPenGroupViewController *controller = [[MarkerPenGroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
+    controller.groupID = groupID;
     [self addChildViewController:controller];
     [self.view addSubview:controller.view];
 }

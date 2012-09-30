@@ -13,6 +13,7 @@
     IBOutlet UILabel *nameLabel;
 }
 
-@property (nonatomic, retain) Group *group;
+//@property (nonatomic, retain) Group *group;
+@property (nonatomic, assign) NSUInteger groupID;
 
 @end

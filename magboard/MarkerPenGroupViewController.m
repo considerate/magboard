@@ -14,7 +14,8 @@
 
 @implementation MarkerPenGroupViewController
 
-@synthesize group = __group;
+//@synthesize group = __group;
+@synthesize groupID = __groupID;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

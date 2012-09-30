@@ -25,7 +25,7 @@
 @property (nonatomic, assign) NSUInteger sortByGroupTypeID;
 
 //- (void)makeViewForGroup: (Group *)group;
-- (void)makeViewForTask: (Task *)task withGroup: (Group *)group;
+//- (void)makeViewForTask: (Task *)task withGroup: (Group *)group;
 
 // To later override -makeViewForGroup:
 //- (void)makeControllerForGroup: (Group *)group;

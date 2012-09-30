@@ -8,7 +8,7 @@
 
 #import "NewGroupTypeViewController.h"
 #import "RootViewController.h"
-#import "GroupType.h"
+//#import "GroupType.h"
 
 @interface NewGroupTypeViewController ()
 
@@ -48,7 +48,7 @@
     if ([[textField text] length]==0)
         return;
     
-    RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
+    /*RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
     
     GroupType *newGroupType = (GroupType *)[NSEntityDescription insertNewObjectForEntityForName:@"GroupType" inManagedObjectContext:rootViewController.managedObjectContext];
     newGroupType.name = [textField text];
@@ -60,7 +60,7 @@
     }
     
     // Add to rootViewController
-    [rootViewController.groupTypes addObject:newGroupType];
+    [rootViewController.groupTypes addObject:newGroupType];*/
     
     [self dismissModalViewControllerAnimated:YES];
 }
