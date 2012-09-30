@@ -8,12 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "DumbyDatabase.h"
+#import <CouchCocoa/CouchCocoa.h>
+#import <CouchCocoa/CouchTouchDBServer.h>
 
-@interface RootViewController : UIViewController
+@interface RootViewController : UIViewController {
+    @private
+    CouchDatabase *_database;
+}
 
 @property (nonatomic, retain) DumbyDatabase *database;
 @property (nonatomic, assign) NSUInteger sortByGroupTypeID;
 
+- (void)useDatabase: (CouchDatabase *)database;
 - (void)makeControllerForGroupID: (NSUInteger)groupID atIndex: (NSUInteger)index;
 
 @end

@@ -7,13 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CouchCocoa/CouchCocoa.h>
+#import <CouchCocoa/CouchTouchDBServer.h>
 
 @interface NewGroupTypeViewController : UIViewController {
     
     IBOutlet UITextField *textField;
+    CouchDatabase *_database;
 }
 
 - (IBAction)addGroupType:(id)sender;
 - (IBAction)cancel:(id)sender;
+
+- (void)useDatabase: (CouchDatabase *)database;
 
 @end

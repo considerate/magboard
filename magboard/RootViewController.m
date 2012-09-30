@@ -10,6 +10,7 @@
 #import "MarkerPenGroupView.h"
 #import "MagnetView.h"
 #import "MarkerPenGroupViewController.h"
+#import "NewGroupTypeViewController.h"
 
 @interface RootViewController ()
 
@@ -79,34 +80,6 @@
 #define TASK_VIEW_DIAMETER 60.0f
 #define TASK_VIEW_SPACING 70.0f
 
-/*- (void)makeViewForTask:(Task *)task withGroup: (Group *)group
-{
-    // Search groupViewPairs for view
-    MarkerPenGroupView *groupView = nil;
-    NSLog(@"Pairs for %i group views",[groupViewPairs count]);
-    for (KeyValuePair *kvp in groupViewPairs) {
-        if ([kvp.key isEqual:group]) {
-            NSLog(@"parent view found");
-            groupView = kvp.value;
-            break;
-        }
-    }
-    
-    // Calculate column and row
-    int arrayIndex = 0;
-    int x = arrayIndex%2;
-    int y = arrayIndex/2;
-    CGRect frame = CGRectMake(x*TASK_VIEW_SPACING+10.0f, y*TASK_VIEW_SPACING+10.0f, TASK_VIEW_DIAMETER, TASK_VIEW_DIAMETER);
-    MagnetView *taskView = [[MagnetView alloc] initWithFrame:frame];
-    
-    // Add text label for task name
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, TASK_VIEW_DIAMETER/2.0f, TASK_VIEW_DIAMETER, 20.0f)];
-    label.text = task.name;
-    [taskView addSubview:label];
-    
-    [groupView addSubview:taskView];
-}*/
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -116,6 +89,14 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    id controller = segue.destinationViewController;
+    if ([controller class] == [NewGroupTypeViewController class]) {
+        [(NewGroupTypeViewController *)controller useDatabase:_database];
+    }
 }
 
 
