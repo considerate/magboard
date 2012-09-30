@@ -21,6 +21,7 @@
 		775E8B83160B828A00E372DC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B68160B828A00E372DC /* CoreData.framework */; };
 		775E8B8B160B828A00E372DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 775E8B89160B828A00E372DC /* InfoPlist.strings */; };
 		775E8B8E160B828A00E372DC /* magboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B8D160B828A00E372DC /* magboardTests.m */; };
+		890C3EA11612E740003E90E0 /* GroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 890C3EA01612E740003E90E0 /* GroupView.xib */; };
 		891744AC160F2A70000CBB62 /* KeyValuePair.m in Sources */ = {isa = PBXBuildFile; fileRef = 891744AB160F2A70000CBB62 /* KeyValuePair.m */; };
 		891744AF160F3500000CBB62 /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891744AE160F3500000CBB62 /* NewTaskViewController.m */; };
 		891744B2160F35C2000CBB62 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 891744B1160F35C1000CBB62 /* Task.m */; };
@@ -33,6 +34,7 @@
 		898E7B00160EE86A0065FA4E /* NewGroupTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898E7AFF160EE86A0065FA4E /* NewGroupTypeViewController.m */; };
 		898E7B03160EFD7A0065FA4E /* NewGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */; };
 		898E7B06160EFE9C0065FA4E /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 898E7B05160EFE9C0065FA4E /* Group.m */; };
+		89EBA09F1611B513006ED1F4 /* MarkerPenGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EBA09E1611B513006ED1F4 /* MarkerPenGroupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,7 @@
 		775E8B8A160B828A00E372DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		775E8B8C160B828A00E372DC /* magboardTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = magboardTests.h; sourceTree = "<group>"; };
 		775E8B8D160B828A00E372DC /* magboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = magboardTests.m; sourceTree = "<group>"; };
+		890C3EA01612E740003E90E0 /* GroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupView.xib; sourceTree = "<group>"; };
 		891744AA160F2A70000CBB62 /* KeyValuePair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValuePair.h; sourceTree = "<group>"; };
 		891744AB160F2A70000CBB62 /* KeyValuePair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValuePair.m; sourceTree = "<group>"; };
 		891744AD160F3500000CBB62 /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 		898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroupViewController.m; sourceTree = "<group>"; };
 		898E7B04160EFE9C0065FA4E /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		898E7B05160EFE9C0065FA4E /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		89EBA09D1611B513006ED1F4 /* MarkerPenGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerPenGroupViewController.h; sourceTree = "<group>"; };
+		89EBA09E1611B513006ED1F4 /* MarkerPenGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerPenGroupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,15 +155,12 @@
 			isa = PBXGroup;
 			children = (
 				891744A8160F2703000CBB62 /* Interface */,
-				898E7AFE160EE86A0065FA4E /* NewGroupTypeViewController.h */,
-				898E7AFF160EE86A0065FA4E /* NewGroupTypeViewController.m */,
-				898E7B01160EFD790065FA4E /* NewGroupViewController.h */,
-				898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */,
-				891744AD160F3500000CBB62 /* NewTaskViewController.h */,
-				891744AE160F3500000CBB62 /* NewTaskViewController.m */,
+				89EBA0A11611B527006ED1F4 /* Modal View Controllers */,
 				8917F002160EBD480063E9C5 /* Views */,
 				8917EFF6160EA2E00063E9C5 /* RootViewController.h */,
 				8917EFF7160EA2E00063E9C5 /* RootViewController.m */,
+				89EBA09D1611B513006ED1F4 /* MarkerPenGroupViewController.h */,
+				89EBA09E1611B513006ED1F4 /* MarkerPenGroupViewController.m */,
 				775E8B73160B828A00E372DC /* AppDelegate.h */,
 				775E8B74160B828A00E372DC /* AppDelegate.m */,
 				775E8B76160B828A00E372DC /* magboard.xcdatamodeld */,
@@ -203,6 +205,7 @@
 		891744A8160F2703000CBB62 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				890C3EA01612E740003E90E0 /* GroupView.xib */,
 				8917EFFA160EA6150063E9C5 /* iPhone.storyboard */,
 			);
 			name = Interface;
@@ -232,6 +235,19 @@
 				898E7AFA160EE2F30065FA4E /* GroupType.m */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		89EBA0A11611B527006ED1F4 /* Modal View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				898E7AFE160EE86A0065FA4E /* NewGroupTypeViewController.h */,
+				898E7AFF160EE86A0065FA4E /* NewGroupTypeViewController.m */,
+				898E7B01160EFD790065FA4E /* NewGroupViewController.h */,
+				898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */,
+				891744AD160F3500000CBB62 /* NewTaskViewController.h */,
+				891744AE160F3500000CBB62 /* NewTaskViewController.m */,
+			);
+			name = "Modal View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +323,7 @@
 			files = (
 				775E8B6F160B828A00E372DC /* InfoPlist.strings in Resources */,
 				8917EFFB160EA6150063E9C5 /* iPhone.storyboard in Resources */,
+				890C3EA11612E740003E90E0 /* GroupView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +372,7 @@
 				891744AC160F2A70000CBB62 /* KeyValuePair.m in Sources */,
 				891744AF160F3500000CBB62 /* NewTaskViewController.m in Sources */,
 				891744B2160F35C2000CBB62 /* Task.m in Sources */,
+				89EBA09F1611B513006ED1F4 /* MarkerPenGroupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

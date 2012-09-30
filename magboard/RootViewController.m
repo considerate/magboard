@@ -10,6 +10,7 @@
 #import "MarkerPenGroupView.h"
 #import "MagnetView.h"
 #import "KeyValuePair.h"
+#import "MarkerPenGroupViewController.h"
 
 @interface RootViewController ()
 
@@ -42,8 +43,7 @@
     [request setEntity:entity];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [request setSortDescriptors:sortDescriptors];
+    [request setSortDescriptors:@[ sortDescriptor ]];
     
     NSError *error = nil;
     NSMutableArray *mutableFetchResults = [[self.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
@@ -59,7 +59,8 @@
     
     groupViewPairs = [[NSMutableArray alloc] init];
     for (Group *group in self.sortByGroupType.groups) {
-        [self makeViewForGroup:group];
+        //[self makeViewForGroup:group];
+        [self makeControllerForGroup:group];
     }
 }
 
@@ -126,39 +127,13 @@
     [groupView addSubview:taskView];
 }
 
-/*- (void)makeViewForTask:(Task *)task
+- (void)makeControllerForGroup:(Group *)group
 {
-    // Find view for task's group
-    
-    // Extract group matching sort by type
-    NSSet *filteredSet = [task.groups objectsPassingTest:^BOOL(id obj, BOOL *stop) {
-        return [[(Group *)obj type] isEqual:self.sortByGroupType];
-    }];
-    Group *group = [[filteredSet allObjects] objectAtIndex:0];
-    
-    // Search groupViewPairs for view
-    MarkerPenGroupView *groupView = nil;
-    for (KeyValuePair *kvp in groupViewPairs) {
-        if ([kvp.key isEqual:group]) {
-            groupView = kvp.value;
-            break;
-        }
-    }
-    
-    // Calculate column and row
-    int arrayIndex = [groupViewPairs count];
-    int x = arrayIndex%2;
-    int y = arrayIndex/2;
-    CGRect frame = CGRectMake(x*TASK_VIEW_SPACING+10.0f, y*TASK_VIEW_SPACING+10.0f, TASK_VIEW_DIAMETER, TASK_VIEW_DIAMETER);
-    MagnetView *taskView = [[MagnetView alloc] initWithFrame:frame];
-    
-    // Add text label for task name
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, TASK_VIEW_DIAMETER, 20.0f)];
-    label.text = task.name;
-    [taskView addSubview:label];
-    
-    [groupView addSubview:taskView];
-}*/
+    MarkerPenGroupViewController *controller = [[MarkerPenGroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
+    controller.group = group;
+    [self addChildViewController:controller];
+    [self.view addSubview:controller.view];
+}
 
 - (void)viewDidUnload
 {
