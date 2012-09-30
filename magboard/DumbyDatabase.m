@@ -97,4 +97,16 @@
     return matchingTasks;
 }
 
+- (NSDictionary *)taskForID:(NSUInteger)taskID
+{
+    NSDictionary *matchingTask = nil;
+    for (NSDictionary *task in [_table objectForKey:@"Tasks"]) {
+        if ([[task objectForKey:@"id"] isEqualToNumber:[NSNumber numberWithUnsignedInteger:taskID]]) {
+            matchingTask = task;
+            break;
+        }
+    }
+    return matchingTask;
+}
+
 @end

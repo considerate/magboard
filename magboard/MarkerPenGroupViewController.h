@@ -16,4 +16,6 @@
 @property (nonatomic, assign) NSUInteger groupID;
 @property (nonatomic, retain) DumbyDatabase *database;
 
+- (void)makeViewForTask: (NSUInteger)taskID atIndex: (NSUInteger)index;
+
 @end

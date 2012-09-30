@@ -46,4 +46,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)makeViewForTask: (NSUInteger)taskID atIndex: (NSUInteger)index
+{
+    
+}
+
 @end
