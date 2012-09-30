@@ -18,6 +18,13 @@
 		775E8B82160B828A00E372DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B64160B828A00E372DC /* Foundation.framework */; };
 		775E8B8B160B828A00E372DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 775E8B89160B828A00E372DC /* InfoPlist.strings */; };
 		775E8B8E160B828A00E372DC /* magboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B8D160B828A00E372DC /* magboardTests.m */; };
+		77AD8BD916183D6E006B00F2 /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BD716183D6E006B00F2 /* CouchCocoa.framework */; };
+		77AD8BDA16183D6E006B00F2 /* TouchDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BD816183D6E006B00F2 /* TouchDB.framework */; };
+		77AD8BDC16183E5C006B00F2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BDB16183E5C006B00F2 /* CFNetwork.framework */; };
+		77AD8BDE16183E69006B00F2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BDD16183E69006B00F2 /* Security.framework */; };
+		77AD8BE016183E75006B00F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BDF16183E75006B00F2 /* SystemConfiguration.framework */; };
+		77AD8BE216183E87006B00F2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BE116183E87006B00F2 /* libsqlite3.dylib */; };
+		77AD8BE416183E93006B00F2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BE316183E93006B00F2 /* libz.dylib */; };
 		890C3EA11612E740003E90E0 /* GroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 890C3EA01612E740003E90E0 /* GroupView.xib */; };
 		891744AF160F3500000CBB62 /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891744AE160F3500000CBB62 /* NewTaskViewController.m */; };
 		8917EFF8160EA2E00063E9C5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917EFF7160EA2E00063E9C5 /* RootViewController.m */; };
@@ -58,6 +65,13 @@
 		775E8B8A160B828A00E372DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		775E8B8C160B828A00E372DC /* magboardTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = magboardTests.h; sourceTree = "<group>"; };
 		775E8B8D160B828A00E372DC /* magboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = magboardTests.m; sourceTree = "<group>"; };
+		77AD8BD716183D6E006B00F2 /* CouchCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchCocoa.framework; path = Frameworks/CouchCocoa.framework; sourceTree = "<group>"; };
+		77AD8BD816183D6E006B00F2 /* TouchDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TouchDB.framework; path = Frameworks/TouchDB.framework; sourceTree = "<group>"; };
+		77AD8BDB16183E5C006B00F2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		77AD8BDD16183E69006B00F2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		77AD8BDF16183E75006B00F2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		77AD8BE116183E87006B00F2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		77AD8BE316183E93006B00F2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		890C3EA01612E740003E90E0 /* GroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupView.xib; sourceTree = "<group>"; };
 		891744AD160F3500000CBB62 /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
 		891744AE160F3500000CBB62 /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
@@ -85,6 +99,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77AD8BE416183E93006B00F2 /* libz.dylib in Frameworks */,
+				77AD8BE216183E87006B00F2 /* libsqlite3.dylib in Frameworks */,
+				77AD8BE016183E75006B00F2 /* SystemConfiguration.framework in Frameworks */,
+				77AD8BDE16183E69006B00F2 /* Security.framework in Frameworks */,
+				77AD8BDC16183E5C006B00F2 /* CFNetwork.framework in Frameworks */,
+				77AD8BD916183D6E006B00F2 /* CouchCocoa.framework in Frameworks */,
+				77AD8BDA16183D6E006B00F2 /* TouchDB.framework in Frameworks */,
 				775E8B63160B828A00E372DC /* UIKit.framework in Frameworks */,
 				775E8B65160B828A00E372DC /* Foundation.framework in Frameworks */,
 				775E8B67160B828A00E372DC /* CoreGraphics.framework in Frameworks */,
@@ -126,6 +147,13 @@
 		775E8B61160B828A00E372DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77AD8BE316183E93006B00F2 /* libz.dylib */,
+				77AD8BE116183E87006B00F2 /* libsqlite3.dylib */,
+				77AD8BDF16183E75006B00F2 /* SystemConfiguration.framework */,
+				77AD8BDD16183E69006B00F2 /* Security.framework */,
+				77AD8BDB16183E5C006B00F2 /* CFNetwork.framework */,
+				77AD8BD716183D6E006B00F2 /* CouchCocoa.framework */,
+				77AD8BD816183D6E006B00F2 /* TouchDB.framework */,
 				775E8B62160B828A00E372DC /* UIKit.framework */,
 				775E8B64160B828A00E372DC /* Foundation.framework */,
 				775E8B66160B828A00E372DC /* CoreGraphics.framework */,
@@ -428,9 +456,14 @@
 		775E8B92160B828A00E372DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "magboard/magboard-Prefix.pch";
 				INFOPLIST_FILE = "magboard/magboard-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -439,9 +472,14 @@
 		775E8B93160B828A00E372DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "magboard/magboard-Prefix.pch";
 				INFOPLIST_FILE = "magboard/magboard-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -8,27 +8,50 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import <CouchCocoa/CouchCocoa.h>
+#import <CouchCocoa/CouchTouchDBServer.h>
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 
-/*- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    //self.window.backgroundColor = [UIColor whiteColor];
-    //[self.window makeKeyAndVisible];
-    
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    if (!managedObjectContext) {
-        // Error! No managed object context!
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{    
+    //TODO(considerate): remove these tests for CouchDB
+        
+    CouchTouchDBServer* server = [CouchTouchDBServer sharedInstance];
+    if (server.error) {
+        //[self showAlert: @"Couldn't start Couchbase." error: server.error fatal: YES];
+        return YES;
     }
-    RootViewController *rootViewController = (RootViewController *)self.window.rootViewController;
-    rootViewController.managedObjectContext = managedObjectContext;
+    
+    
+    CouchDatabase *database = [server databaseNamed: @"magboard"];
+    NSError* error;
+    if (![database ensureCreated: &error]) {
+      //[self showAlert: @"Couldn't start Couchbase." error: error fatal: YES];
+    }
+    
+    [database replicateWithURL:[NSURL URLWithString:@"http://192.168.11.7:5984/magboard"] exclusively:YES];
+    
+    NSDictionary *inDocument = [NSDictionary dictionaryWithObjectsAndKeys:@"Test", @"text",
+                                [NSNumber numberWithBool:NO], @"check",
+                                [RESTBody JSONObjectWithDate: [NSDate date]], @"created_at",
+                                nil];
+      // Save the document, asynchronously:
+    CouchDocument* doc = [database untitledDocument];
+    RESTOperation* op = [doc putProperties:inDocument];
+    [op onCompletion: ^{
+        if (op.error) {
+            //[self showAlert: @"Couldn't save the new item" error:0 fatal: YES];
+        }
+        // Re-run the query:
+        //[self.dataSource.query start];
+    }];
+    [op start];
     
     return YES;
-}*/
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
