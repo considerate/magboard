@@ -14,9 +14,18 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        CGRect labelFrame = CGRectMake(0,
+                                       frame.size.height/2,
+                                       frame.size.width,
+                                       20);
+        _label = [[UILabel alloc] initWithFrame:labelFrame];
     }
     return self;
+}
+
+- (void)setLabel:(NSString *)label
+{
+    [_label setText:label];
 }
 
 

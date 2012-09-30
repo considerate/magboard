@@ -14,8 +14,8 @@
 
 @implementation MarkerPenGroupViewController
 
-//@synthesize group = __group;
 @synthesize groupID = __groupID;
+@synthesize database = __database;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +30,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    NSDictionary *group = [self.database groupForID:self.groupID];
+    [nameLabel setText:[group objectForKey:@"name"]];
 }
 
 - (void)viewDidUnload
@@ -41,6 +44,11 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)makeViewForTask: (NSUInteger)taskID atIndex: (NSUInteger)index
+{
+    
 }
 
 @end

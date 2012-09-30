@@ -59,7 +59,31 @@
     return [_table objectForKey:@"GroupTypes"];
 }
 
-- (NSArray *)groupsForGroupTypeID: (NSUInteger)groupID
+- (NSArray *)groupsForGroupTypeID: (NSUInteger)groupTypeID
+{
+    NSNumber *IDToMatch = [NSNumber numberWithInteger:groupTypeID];
+    NSMutableArray *matchingGroups = [[NSMutableArray alloc] init];
+    for (NSDictionary *group in [_table objectForKey:@"Groups"]) {
+        if ([[group objectForKey:@"type"] isEqualToNumber:IDToMatch]) {
+            [matchingGroups addObject:group];
+        }
+    }
+    return matchingGroups;
+}
+
+- (NSDictionary *)groupForID:(NSUInteger)groupID
+{
+    NSDictionary *matchingGroup = nil;
+    for (NSDictionary *group in [_table objectForKey:@"Groups"]) {
+        if ([[group objectForKey:@"id"] isEqualToNumber:[NSNumber numberWithUnsignedInteger:groupID]]) {
+            matchingGroup = group;
+            break;
+        }
+    }
+    return matchingGroup;
+}
+
+- (NSArray *)tasksForGroupID: (NSUInteger)groupID
 {
     NSMutableArray *matchingTasks = [[NSMutableArray alloc] init];
     for (NSDictionary *task in [_table objectForKey:@"Tasks"]) {
@@ -73,18 +97,16 @@
     return matchingTasks;
 }
 
-- (NSArray *)tasksForGroupID: (NSUInteger)groupTypeID
+- (NSDictionary *)taskForID:(NSUInteger)taskID
 {
-    NSMutableArray *matchingGroups = [[NSMutableArray alloc] init];
-    for (NSDictionary *group in [_table objectForKey:@"Groups"]) {
-        for (NSNumber *groupGroupTypeID in [group objectForKey:@"type"]) {
-            if ([groupGroupTypeID isEqualToNumber:[NSNumber numberWithInteger:groupTypeID]]) {
-                [matchingGroups addObject:group];
-                break;
-            }
+    NSDictionary *matchingTask = nil;
+    for (NSDictionary *task in [_table objectForKey:@"Tasks"]) {
+        if ([[task objectForKey:@"id"] isEqualToNumber:[NSNumber numberWithUnsignedInteger:taskID]]) {
+            matchingTask = task;
+            break;
         }
     }
-    return matchingGroups;
+    return matchingTask;
 }
 
 @end

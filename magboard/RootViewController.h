@@ -9,14 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "DumbyDatabase.h"
 
-@interface RootViewController : UIViewController {
-    NSMutableArray *groupViewPairs;
-    NSUInteger _sortbyGroupType;
-}
+@interface RootViewController : UIViewController
 
 @property (nonatomic, retain) DumbyDatabase *database;
 @property (nonatomic, assign) NSUInteger sortByGroupTypeID;
 
-- (void)makeControllerForGroupID: (NSUInteger)groupID;
+- (void)makeControllerForGroupID: (NSUInteger)groupID atIndex: (NSUInteger)index;
 
 @end

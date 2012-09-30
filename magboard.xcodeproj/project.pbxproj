@@ -26,7 +26,6 @@
 		77AD8BE216183E87006B00F2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BE116183E87006B00F2 /* libsqlite3.dylib */; };
 		77AD8BE416183E93006B00F2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BE316183E93006B00F2 /* libz.dylib */; };
 		890C3EA11612E740003E90E0 /* GroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 890C3EA01612E740003E90E0 /* GroupView.xib */; };
-		891744AC160F2A70000CBB62 /* KeyValuePair.m in Sources */ = {isa = PBXBuildFile; fileRef = 891744AB160F2A70000CBB62 /* KeyValuePair.m */; };
 		891744AF160F3500000CBB62 /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891744AE160F3500000CBB62 /* NewTaskViewController.m */; };
 		8917EFF8160EA2E00063E9C5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917EFF7160EA2E00063E9C5 /* RootViewController.m */; };
 		8917EFFB160EA6150063E9C5 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8917EFFA160EA6150063E9C5 /* iPhone.storyboard */; };
@@ -76,8 +75,6 @@
 		77AD8BE116183E87006B00F2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		77AD8BE316183E93006B00F2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		890C3EA01612E740003E90E0 /* GroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupView.xib; sourceTree = "<group>"; };
-		891744AA160F2A70000CBB62 /* KeyValuePair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValuePair.h; sourceTree = "<group>"; };
-		891744AB160F2A70000CBB62 /* KeyValuePair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValuePair.m; sourceTree = "<group>"; };
 		891744AD160F3500000CBB62 /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
 		891744AE160F3500000CBB62 /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
 		8917EFF6160EA2E00063E9C5 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -188,8 +185,6 @@
 				775E8B73160B828A00E372DC /* AppDelegate.h */,
 				775E8B74160B828A00E372DC /* AppDelegate.m */,
 				775E8B6B160B828A00E372DC /* Supporting Files */,
-				891744AA160F2A70000CBB62 /* KeyValuePair.h */,
-				891744AB160F2A70000CBB62 /* KeyValuePair.m */,
 			);
 			path = magboard;
 			sourceTree = "<group>";
@@ -375,7 +370,6 @@
 				8917F005160EBD6F0063E9C5 /* MarkerPenGroupView.m in Sources */,
 				898E7B00160EE86A0065FA4E /* NewGroupTypeViewController.m in Sources */,
 				898E7B03160EFD7A0065FA4E /* NewGroupViewController.m in Sources */,
-				891744AC160F2A70000CBB62 /* KeyValuePair.m in Sources */,
 				891744AF160F3500000CBB62 /* NewTaskViewController.m in Sources */,
 				89EBA09F1611B513006ED1F4 /* MarkerPenGroupViewController.m in Sources */,
 				89B25DF21617F6C2004C5631 /* DumbyDatabase.m in Sources */,
