@@ -7,6 +7,7 @@
 //
 
 #import "MarkerPenGroupViewController.h"
+#import "MagnetView.h"
 
 @interface MarkerPenGroupViewController ()
 
@@ -33,6 +34,12 @@
     
     NSDictionary *group = [self.database groupForID:self.groupID];
     [nameLabel setText:[group objectForKey:@"name"]];
+    
+    NSArray *tasksToDisplay = [self.database tasksForGroupID:self.groupID];
+    for (NSUInteger i=0; i<[tasksToDisplay count]; i++) {
+        NSUInteger taskID = [[[tasksToDisplay objectAtIndex:i] objectForKey:@"id"] unsignedIntegerValue];
+        [self makeViewForTask:taskID atIndex:i];
+    }
 }
 
 - (void)viewDidUnload
@@ -46,9 +53,25 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#define TASK_VIEW_DIAMETER 60.0f
+#define TASK_VIEW_SPACING 70.0f
+
 - (void)makeViewForTask: (NSUInteger)taskID atIndex: (NSUInteger)index
 {
+    // Calculate column and row
+    int arrayIndex = index;
+    int x = arrayIndex%2;
+    int y = arrayIndex/2;
+    CGRect frame = CGRectMake(x*TASK_VIEW_SPACING,
+                              y*TASK_VIEW_SPACING,
+                              TASK_VIEW_DIAMETER,
+                              TASK_VIEW_DIAMETER);
     
+    NSDictionary *task = [self.database taskForID:taskID];
+    MagnetView *taskView = [[MagnetView alloc] initWithFrame:frame];
+    [taskView setLabel:[task objectForKey:@"name"]];
+    
+    [self.view addSubview:taskView];
 }
 
 @end
