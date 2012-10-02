@@ -54,7 +54,7 @@
 }
 
 #define TASK_VIEW_DIAMETER 60.0f
-#define TASK_VIEW_SPACING 70.0f
+#define TASK_VIEW_SPACING 64.0f
 
 - (void)makeViewForTask: (NSUInteger)taskID atIndex: (NSUInteger)index
 {
@@ -62,8 +62,8 @@
     int arrayIndex = index;
     int x = arrayIndex%2;
     int y = arrayIndex/2;
-    CGRect frame = CGRectMake(x*TASK_VIEW_SPACING + 10.0f,
-                              y*TASK_VIEW_SPACING + 10.0f,
+    CGRect frame = CGRectMake(x*TASK_VIEW_SPACING + 8.0f,
+                              y*TASK_VIEW_SPACING + 8.0f,
                               TASK_VIEW_DIAMETER,
                               TASK_VIEW_DIAMETER);
     
