@@ -19,6 +19,7 @@
                                        frame.size.width,
                                        20);
         _label = [[UILabel alloc] initWithFrame:labelFrame];
+        [self addSubview:_label];
     }
     return self;
 }

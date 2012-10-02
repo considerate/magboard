@@ -10,6 +10,7 @@
 
 @interface MagnetView : UIView {
     UILabel *_label;
+    NSString *_taskName;
 }
 
 - (void)setLabel:(NSString *)label;
