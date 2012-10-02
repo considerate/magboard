@@ -50,21 +50,6 @@
     if ([[textField text] length]==0)
         return;
     
-    RootViewController *rootViewController = (RootViewController *)self.presentingViewController;
-    
-    /*GroupType *newGroupType = (GroupType *)[NSEntityDescription insertNewObjectForEntityForName:@"GroupType" inManagedObjectContext:rootViewController.managedObjectContext];
-    newGroupType.name = [textField text];
-    
-    // Save to persistent store
-    NSError *error = nil;
-    if (![rootViewController.managedObjectContext save:&error]) {
-        // Handle the error.
-    }
-    
-    // Add to rootViewController
-    [rootViewController.groupTypes addObject:newGroupType];*/
-    
-    
     NSDictionary *inDocument = @{ @"name" : [textField text] };
     // Save the document, asynchronously:
     CouchDocument* doc = [_database untitledDocument];
