@@ -62,8 +62,8 @@
     int arrayIndex = index;
     int x = arrayIndex%2;
     int y = arrayIndex/2;
-    CGRect frame = CGRectMake(x*TASK_VIEW_SPACING,
-                              y*TASK_VIEW_SPACING,
+    CGRect frame = CGRectMake(x*TASK_VIEW_SPACING + 10.0f,
+                              y*TASK_VIEW_SPACING + 10.0f,
                               TASK_VIEW_DIAMETER,
                               TASK_VIEW_DIAMETER);
     

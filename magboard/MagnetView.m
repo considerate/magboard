@@ -15,10 +15,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         CGRect labelFrame = CGRectMake(0,
-                                       frame.size.height/2,
+                                       frame.size.height/2-10,
                                        frame.size.width,
                                        20);
         _label = [[UILabel alloc] initWithFrame:labelFrame];
+        _label.backgroundColor = [UIColor clearColor];
+        _label.opaque = NO;
+        _label.font = [UIFont fontWithName:@"helvetica" size:10.0f];
+        _label.textAlignment = UITextAlignmentCenter;
         [self addSubview:_label];
     }
     return self;
