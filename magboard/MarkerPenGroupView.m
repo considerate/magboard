@@ -31,7 +31,7 @@
     // Simply draw a black cicle up to the view's bounds.
     CGContextSetLineWidth(context, 2.0f);
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
-    CGContextAddEllipseInRect(context, self.bounds);
+    CGContextAddEllipseInRect(context, CGRectInset(self.bounds, 1.0f, 1.0f));
     CGContextStrokePath(context);
     
     [super drawRect:rect];
