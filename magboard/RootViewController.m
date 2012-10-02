@@ -31,6 +31,11 @@
     return self;
 }
 
+- (void)useDatabase:(CouchDatabase *)database
+{
+    _database = database;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
