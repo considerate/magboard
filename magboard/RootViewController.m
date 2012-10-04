@@ -11,6 +11,7 @@
 #import "MagnetView.h"
 #import "MarkerPenGroupViewController.h"
 #import "NewGroupTypeViewController.h"
+#import <CouchCocoa/CouchDesignDocument_Embedded.h>
 
 @interface RootViewController ()
 
@@ -34,6 +35,63 @@
 - (void)useDatabase:(CouchDatabase *)database
 {
     _database = database;
+    
+    // Create a 'view' containing list groupTypes sorted alphabetically:
+    CouchDesignDocument* groupTypeDesign = [_database designDocumentWithName: @"groupType"];
+    [groupTypeDesign defineViewNamed: @"byName" mapBlock: MAPBLOCK({
+        id name = [doc objectForKey: @"name"];
+        if (name) emit(name, doc);
+    }) version: @"1.0"];
+    
+    // and a validation function requiring parseable names:
+    groupTypeDesign.validationBlock = VALIDATIONBLOCK({
+        if (newRevision.deleted)
+            return YES;
+        id name = [newRevision.properties objectForKey: @"name"];
+        if (name && ! [RESTBody stringWithJSONObject:name]) {
+            context.errorMessage = [@"invalid name " stringByAppendingString: name];
+            return NO;
+        }
+        return YES;
+    });
+    
+    // Create a 'view' containing list groups sorted by typeID:
+    CouchDesignDocument* groupDesign = [_database designDocumentWithName: @"group"];
+    [groupDesign defineViewNamed: @"byTypeID" mapBlock: MAPBLOCK({
+        id typeID = [doc objectForKey: @"typeID"];
+        if (typeID) emit(typeID, doc);
+    }) version: @"1.0"];
+    
+    // and a validation function requiring parseable names:
+    groupDesign.validationBlock = VALIDATIONBLOCK({
+        if (newRevision.deleted)
+            return YES;
+        id typeID = [newRevision.properties objectForKey: @"typeID"];
+        if (typeID && ! [RESTBody stringWithJSONObject:typeID]) {
+            context.errorMessage = [@"invalid typeID " stringByAppendingString: typeID];
+            return NO;
+        }
+        return YES;
+    });
+    
+    // Create a 'view' containing list groups sorted by typeID:
+    CouchDesignDocument* taskDesign = [_database designDocumentWithName: @"task"];
+    [taskDesign defineViewNamed: @"byDate" mapBlock: MAPBLOCK({
+        id creationDate = [doc objectForKey: @"creationDate"];
+        if (creationDate) emit(creationDate, doc);
+    }) version: @"1.0"];
+    
+    // and a validation function requiring parseable names:
+    taskDesign.validationBlock = VALIDATIONBLOCK({
+        if (newRevision.deleted)
+            return YES;
+        id creationDate = [newRevision.properties objectForKey: @"creationDate"];
+        if (creationDate && ! [RESTBody dataWithJSONObject:creationDate]) {
+            context.errorMessage = [@"invalid typeID " stringByAppendingString: creationDate];
+            return NO;
+        }
+        return YES;
+    });
 }
 
 - (void)viewDidLoad
