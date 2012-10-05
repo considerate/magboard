@@ -94,6 +94,67 @@
     });
 }
 
+- (void)populateDatabase
+{
+    // Populate groupTypes
+    NSArray *groupTypes = @[
+    @{ @"type" : @"groupType", @"name" : @"people" },
+    @{ @"type" : @"groupType", @"name" : @"projects" }
+    ];
+    for (NSDictionary *groupTypeDictionary in groupTypes) {
+        // Create the new document's properties:
+        NSDictionary *inDocument = groupTypeDictionary;
+        
+        // Save the document, asynchronously:
+        CouchDocument* doc = [_database untitledDocument];
+        RESTOperation* op = [doc putProperties:inDocument];
+        [op onCompletion: ^{}];
+        [op start];
+    }
+    
+    // Populate groups
+    NSArray *groups = @[
+    // People
+    @{ @"type" : @"group", @"name" : @"Harry" },
+    @{ @"type" : @"group", @"name" : @"Bob" },
+    // Projects
+    @{ @"type" : @"group", @"name" : @"Japanese" },
+    @{ @"type" : @"group", @"name" : @"Cleaning" }
+    ];
+    for (NSDictionary *groupDictionary in groups) {
+        // Create the new document's properties:
+        NSDictionary *inDocument = groupDictionary;
+        
+        // Save the document, asynchronously:
+        CouchDocument* doc = [_database untitledDocument];
+        RESTOperation* op = [doc putProperties:inDocument];
+        [op onCompletion: ^{}];
+        [op start];
+    }
+    
+    // Populate tasks
+    NSArray *tasks = @[
+    // Japanese tasks
+    @{ @"type" : @"task", @"name" : @"Shukudai" },
+    @{ @"type" : @"task", @"name" : @"Kanji Practice" },
+    @{ @"type" : @"task", @"name" : @"Flashcards" },
+    // Cleaning tasks
+    @{ @"type" : @"task", @"name" : @"Vacuuming" },
+    @{ @"type" : @"task", @"name" : @"Washing up" },
+    @{ @"type" : @"task", @"name" : @"Dusting" }
+    ];
+    for (NSDictionary *taskDictionary in tasks) {
+        // Create the new document's properties:
+        NSDictionary *inDocument = taskDictionary;
+        
+        // Save the document, asynchronously:
+        CouchDocument* doc = [_database untitledDocument];
+        RESTOperation* op = [doc putProperties:inDocument];
+        [op onCompletion: ^{}];
+        [op start];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
