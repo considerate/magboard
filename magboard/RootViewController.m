@@ -141,13 +141,13 @@
     // Populate tasks
     NSArray *tasks = @[
     // Japanese tasks
-    @{ @"type" : @"task", @"name" : @"Shukudai" },
-    @{ @"type" : @"task", @"name" : @"Kanji Practice" },
-    @{ @"type" : @"task", @"name" : @"Flashcards" },
+    @{ @"type" : @"task", @"name" : @"Shukudai", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:100000000]] },
+    @{ @"type" : @"task", @"name" : @"Kanji Practice", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:200000000]] },
+    @{ @"type" : @"task", @"name" : @"Flashcards", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:300000000]] },
     // Cleaning tasks
-    @{ @"type" : @"task", @"name" : @"Vacuuming" },
-    @{ @"type" : @"task", @"name" : @"Washing up" },
-    @{ @"type" : @"task", @"name" : @"Dusting" }
+    @{ @"type" : @"task", @"name" : @"Vacuuming", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:400000000]] },
+    @{ @"type" : @"task", @"name" : @"Washing up", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:500000000]] },
+    @{ @"type" : @"task", @"name" : @"Dusting", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:600000000]] }
     ];
     for (NSDictionary *taskDictionary in tasks) {
         // Create the new document's properties:
