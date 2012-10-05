@@ -34,21 +34,7 @@
     
     [database replicateWithURL:[NSURL URLWithString:@"http://192.168.11.7:5984/magboard"] exclusively:YES];
     
-    NSDictionary *inDocument = [NSDictionary dictionaryWithObjectsAndKeys:@"Test", @"text",
-                                [NSNumber numberWithBool:NO], @"check",
-                                [RESTBody JSONObjectWithDate: [NSDate date]], @"created_at",
-                                nil];
-      // Save the document, asynchronously:
-    CouchDocument* doc = [database untitledDocument];
-    RESTOperation* op = [doc putProperties:inDocument];
-    [op onCompletion: ^{
-        if (op.error) {
-            //[self showAlert: @"Couldn't save the new item" error:0 fatal: YES];
-        }
-        // Re-run the query:
-        //[self.dataSource.query start];
-    }];
-    [op start];
+    [(RootViewController *)self.window.rootViewController useDatabase:database];
     
     return YES;
 }
