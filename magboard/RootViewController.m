@@ -62,7 +62,7 @@
         if (typeID) emit(typeID, doc);
     }) version: @"1.0"];
     
-    // and a validation function requiring parseable names:
+    // and a validation function requiring parseable typeID:
     groupDesign.validationBlock = VALIDATIONBLOCK({
         if (newRevision.deleted)
             return YES;
@@ -81,7 +81,7 @@
         if (creationDate) emit(creationDate, doc);
     }) version: @"1.0"];
     
-    // and a validation function requiring parseable names:
+    // and a validation function requiring parseable creationDate:
     taskDesign.validationBlock = VALIDATIONBLOCK({
         if (newRevision.deleted)
             return YES;
@@ -115,6 +115,24 @@
         NSUInteger groupID = [[[groupsToDisplay objectAtIndex:i] objectForKey:@"id"] unsignedIntegerValue];
         [self makeControllerForGroupID:groupID atIndex:i];
     }
+    
+    // Setup queries if database is connected.
+    NSAssert(_database!=nil, @"Not hooked up to database yet");
+    
+    // Create a GroupType query sorted by ascending name:
+    _allGroupTypesQuery = [[[_database designDocumentWithName: @"groupType"]
+                         queryViewNamed: @"byName"] asLiveQuery];
+    _allGroupTypesQuery.descending = NO;
+    
+    // Create a Group query sorted by ascending typeID:
+    _allGroupsQuery = [[[_database designDocumentWithName: @"group"]
+                     queryViewNamed: @"byTypeID"] asLiveQuery];
+    _allGroupsQuery.descending = NO;
+    
+    // Create a Task query sorted by descending creationDate:
+    _allTasksQuery = [[[_database designDocumentWithName: @"task"]
+                     queryViewNamed: @"byDate"] asLiveQuery];
+    _allTasksQuery.descending = YES;
 }
 
 
