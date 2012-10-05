@@ -187,21 +187,27 @@
     NSAssert(_database!=nil, @"Not hooked up to database yet");
     
     // Create a GroupType query sorted by ascending name:
-    _allGroupTypesQuery = [[[_database designDocumentWithName: @"groupType"]
-                         queryViewNamed: @"byName"] asLiveQuery];
+    _allGroupTypesQuery = [[_database designDocumentWithName: @"groupType"]
+                         queryViewNamed: @"byName"];
     _allGroupTypesQuery.descending = NO;
     
     // Create a Group query sorted by ascending typeID:
-    _allGroupsQuery = [[[_database designDocumentWithName: @"group"]
-                     queryViewNamed: @"byTypeID"] asLiveQuery];
+    _allGroupsQuery = [[_database designDocumentWithName: @"group"]
+                     queryViewNamed: @"byTypeID"];
     _allGroupsQuery.descending = NO;
     
     // Create a Task query sorted by descending creationDate:
-    _allTasksQuery = [[[_database designDocumentWithName: @"task"]
-                     queryViewNamed: @"byDate"] asLiveQuery];
+    _allTasksQuery = [[_database designDocumentWithName: @"task"]
+                     queryViewNamed: @"byDate"];
     _allTasksQuery.descending = YES;
     
     // Log all data
+    CouchQuery *allDocuments = [_database getAllDocuments];
+    NSLog(@"total documents: %i",[allDocuments.rows count]);
+    NSLog(@"groupTypes:%i groups:%i tasks:%i",
+          [_allGroupTypesQuery.rows count],
+          [_allGroupsQuery.rows count],
+          [_allTasksQuery.rows count]);
     for (CouchQueryRow *row in _allGroupTypesQuery.rows) {
         CouchDocument *doc = row.document;
         NSLog(@"groupType ID: %@ name: %@", doc.documentID, [doc propertyForKey:@"name"]);
