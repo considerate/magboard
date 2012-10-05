@@ -133,6 +133,20 @@
     _allTasksQuery = [[[_database designDocumentWithName: @"task"]
                      queryViewNamed: @"byDate"] asLiveQuery];
     _allTasksQuery.descending = YES;
+    
+    // Log all data
+    for (CouchQueryRow *row in _allGroupTypesQuery.rows) {
+        CouchDocument *doc = row.document;
+        NSLog(@"groupType ID: %@ name: %@", doc.documentID, [doc propertyForKey:@"name"]);
+    }
+    for (CouchQueryRow *row in _allGroupsQuery.rows) {
+        CouchDocument *doc = row.document;
+        NSLog(@"group ID: %@ name: %@", doc.documentID, [doc propertyForKey:@"name"]);
+    }
+    for (CouchQueryRow *row in _allTasksQuery.rows) {
+        CouchDocument *doc = row.document;
+        NSLog(@"task ID: %@ name: %@", doc.documentID, [doc propertyForKey:@"name"]);
+    }
 }
 
 
