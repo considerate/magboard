@@ -32,7 +32,7 @@
       //[self showAlert: @"Couldn't start Couchbase." error: error fatal: YES];
     }
     
-    [database replicateWithURL:[NSURL URLWithString:@"http://192.168.11.7:5984/magboard"] exclusively:YES];
+    [database replicateWithURL:[NSURL URLWithString:@"http://192.168.11.10:5984/magboard"] exclusively:YES];
     
     [(RootViewController *)self.window.rootViewController useDatabase:database];
     

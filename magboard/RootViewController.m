@@ -78,10 +78,10 @@
         return YES;
     });
     
-    // Create a 'view' containing list groups sorted by typeID:
+    // Create a 'view' containing a list of tasks sorted by creationDate:
     CouchDesignDocument* taskDesign = [_database designDocumentWithName: @"task"];
     [taskDesign defineViewNamed: @"byDate" mapBlock: MAPBLOCK({
-        if ([[doc objectForKey:@"type"] isEqualToString:@"group"]) {
+        if ([[doc objectForKey:@"type"] isEqualToString:@"task"]) {
             id creationDate = [doc objectForKey: @"creationDate"];
             if (creationDate) emit(creationDate, doc);
         }
@@ -92,7 +92,7 @@
         if (newRevision.deleted)
             return YES;
         id creationDate = [newRevision.properties objectForKey: @"creationDate"];
-        if (creationDate && ! [RESTBody dataWithJSONObject:creationDate]) {
+        if (creationDate && ! [RESTBody dateWithJSONObject:creationDate]) {
             context.errorMessage = [@"invalid creationDate " stringByAppendingString: creationDate];
             return NO;
         }
@@ -102,6 +102,11 @@
 
 - (void)populateDatabase
 {
+    // Clear existing documents
+    for (CouchQueryRow *row in [[_database getAllDocuments] rows]) {
+        [_database deleteDocuments:@[ row.document ]];
+    }
+    
     // Populate groupTypes
     NSArray *groupTypes = @[
     @{ @"type" : @"groupType", @"name" : @"people" },
@@ -201,6 +206,7 @@
                      queryViewNamed: @"byDate"];
     _allTasksQuery.descending = YES;
     
+    [self populateDatabase];
     // Log all data
     CouchQuery *allDocuments = [_database getAllDocuments];
     NSLog(@"total documents: %i",[allDocuments.rows count]);
@@ -220,6 +226,7 @@
         CouchDocument *doc = row.document;
         NSLog(@"task ID: %@ name: %@", doc.documentID, [doc propertyForKey:@"name"]);
     }
+    
 }
 
 
