@@ -37,8 +37,8 @@
     _database = database;
     
     // Create a 'view' containing list groupTypes sorted alphabetically:
-    CouchDesignDocument* groupTypeDesign = [_database designDocumentWithName: @"groupType"];
-    [groupTypeDesign defineViewNamed: @"byName" mapBlock: MAPBLOCK({
+    CouchDesignDocument* designDoc = [_database designDocumentWithName: @"tasks"];
+    [designDoc defineViewNamed: @"groupByName" mapBlock: MAPBLOCK({
         if ([[doc objectForKey:@"type"] isEqualToString:@"groupType"]) {
             id name = [doc objectForKey: @"name"];
             if (name) emit(name, doc);
@@ -46,58 +46,40 @@
     }) version: @"1.0"];
     
     // and a validation function requiring parseable names:
-    groupTypeDesign.validationBlock = VALIDATIONBLOCK({
+    designDoc.validationBlock = VALIDATIONBLOCK({
         if (newRevision.deleted)
             return YES;
-        id name = [newRevision.properties objectForKey: @"name"];
-        if (name && ! [RESTBody stringWithJSONObject:name]) {
-            context.errorMessage = [@"invalid name " stringByAppendingString: name];
-            return NO;
-        }
-        return YES;
-    });
-    
-    // Create a 'view' containing list groups sorted by typeID:
-    CouchDesignDocument* groupDesign = [_database designDocumentWithName: @"group"];
-    [groupDesign defineViewNamed: @"byTypeID" mapBlock: MAPBLOCK({
-        if ([[doc objectForKey:@"type"] isEqualToString:@"group"]) {
-            id typeID = [doc objectForKey: @"typeID"];
-            if (typeID) emit(typeID, doc);
-        }
-    }) version: @"1.0"];
-    
-    // and a validation function requiring parseable typeID:
-    groupDesign.validationBlock = VALIDATIONBLOCK({
-        if (newRevision.deleted)
-            return YES;
-        id typeID = [newRevision.properties objectForKey: @"typeID"];
-        if (typeID && ! [RESTBody stringWithJSONObject:typeID]) {
-            context.errorMessage = [@"invalid typeID " stringByAppendingString: typeID];
-            return NO;
-        }
-        return YES;
-    });
-    
-    // Create a 'view' containing a list of tasks sorted by creationDate:
-    CouchDesignDocument* taskDesign = [_database designDocumentWithName: @"task"];
-    [taskDesign defineViewNamed: @"byDate" mapBlock: MAPBLOCK({
-        if ([[doc objectForKey:@"type"] isEqualToString:@"task"]) {
-            id creationDate = [doc objectForKey: @"creationDate"];
-            if (creationDate) emit(creationDate, doc);
-        }
-    }) version: @"1.0"];
-    
-    // and a validation function requiring parseable creationDate:
-    taskDesign.validationBlock = VALIDATIONBLOCK({
-        if (newRevision.deleted)
-            return YES;
+        
+        //Require creation date for all types
         id creationDate = [newRevision.properties objectForKey: @"creationDate"];
         if (creationDate && ! [RESTBody dateWithJSONObject:creationDate]) {
             context.errorMessage = [@"invalid creationDate " stringByAppendingString: creationDate];
             return NO;
         }
         return YES;
+        return YES;
     });
+    
+    // Create a 'view' containing list groups sorted by typeID:
+    [designDoc defineViewNamed: @"groupByTypeID" mapBlock: MAPBLOCK({
+        if ([[doc objectForKey:@"type"] isEqualToString:@"group"]) {
+            id typeID = [doc objectForKey: @"typeID"];
+            if (typeID) emit(typeID, doc);
+        }
+    }) version: @"1.0"];
+    
+
+    
+    // Create a 'view' containing a list of tasks sorted by creationDate:
+    [designDoc defineViewNamed: @"taskByDate" mapBlock: MAPBLOCK({
+        if ([[doc objectForKey:@"type"] isEqualToString:@"task"]) {
+            id creationDate = [doc objectForKey: @"creationDate"];
+            if (creationDate) emit(creationDate, doc);
+        }
+    }) version: @"1.0"];
+    
+    
+    [self populateDatabase];
 }
 
 - (void)populateDatabase
@@ -191,22 +173,22 @@
     // Setup queries if database is connected.
     NSAssert(_database!=nil, @"Not hooked up to database yet");
     
+    
+    CouchDesignDocument* design = [_database designDocumentWithName: @"tasks"];
+    
+    
     // Create a GroupType query sorted by ascending name:
-    _allGroupTypesQuery = [[_database designDocumentWithName: @"groupType"]
-                         queryViewNamed: @"byName"];
+    _allGroupTypesQuery = [design queryViewNamed: @"groupByName"];
     _allGroupTypesQuery.descending = NO;
     
     // Create a Group query sorted by ascending typeID:
-    _allGroupsQuery = [[_database designDocumentWithName: @"group"]
-                     queryViewNamed: @"byTypeID"];
+    _allGroupsQuery = [design queryViewNamed: @"groupByTypeID"];
     _allGroupsQuery.descending = NO;
     
     // Create a Task query sorted by descending creationDate:
-    _allTasksQuery = [[_database designDocumentWithName: @"task"]
-                     queryViewNamed: @"byDate"];
+    _allTasksQuery = [design queryViewNamed: @"taskByDate"];
     _allTasksQuery.descending = YES;
     
-    [self populateDatabase];
     // Log all data
     CouchQuery *allDocuments = [_database getAllDocuments];
     NSLog(@"total documents: %i",[allDocuments.rows count]);

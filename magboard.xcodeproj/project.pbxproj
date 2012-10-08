@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7736CF1F162304BC00173C17 /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7736CF1D162304BC00173C17 /* CouchCocoa.framework */; };
+		7736CF20162304BC00173C17 /* TouchDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7736CF1E162304BC00173C17 /* TouchDB.framework */; };
 		775E8B63160B828A00E372DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B62160B828A00E372DC /* UIKit.framework */; };
 		775E8B65160B828A00E372DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B64160B828A00E372DC /* Foundation.framework */; };
 		775E8B67160B828A00E372DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B66160B828A00E372DC /* CoreGraphics.framework */; };
@@ -18,8 +20,6 @@
 		775E8B82160B828A00E372DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E8B64160B828A00E372DC /* Foundation.framework */; };
 		775E8B8B160B828A00E372DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 775E8B89160B828A00E372DC /* InfoPlist.strings */; };
 		775E8B8E160B828A00E372DC /* magboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B8D160B828A00E372DC /* magboardTests.m */; };
-		77AD8BD916183D6E006B00F2 /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BD716183D6E006B00F2 /* CouchCocoa.framework */; };
-		77AD8BDA16183D6E006B00F2 /* TouchDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BD816183D6E006B00F2 /* TouchDB.framework */; };
 		77AD8BDC16183E5C006B00F2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BDB16183E5C006B00F2 /* CFNetwork.framework */; };
 		77AD8BDE16183E69006B00F2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BDD16183E69006B00F2 /* Security.framework */; };
 		77AD8BE016183E75006B00F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD8BDF16183E75006B00F2 /* SystemConfiguration.framework */; };
@@ -35,8 +35,6 @@
 		898E7B00160EE86A0065FA4E /* NewGroupTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898E7AFF160EE86A0065FA4E /* NewGroupTypeViewController.m */; };
 		898E7B03160EFD7A0065FA4E /* NewGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */; };
 		89B25DF21617F6C2004C5631 /* DumbyDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B25DF11617F6C2004C5631 /* DumbyDatabase.m */; };
-		89B25E2516185197004C5631 /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B25E2316185197004C5631 /* CouchCocoa.framework */; };
-		89B25E2616185197004C5631 /* TouchDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B25E2416185197004C5631 /* TouchDB.framework */; };
 		89EBA09F1611B513006ED1F4 /* MarkerPenGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EBA09E1611B513006ED1F4 /* MarkerPenGroupViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7736CF1D162304BC00173C17 /* CouchCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchCocoa.framework; path = Frameworks/CouchCocoa.framework; sourceTree = "<group>"; };
+		7736CF1E162304BC00173C17 /* TouchDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TouchDB.framework; path = Frameworks/TouchDB.framework; sourceTree = "<group>"; };
 		775E8B5E160B828A00E372DC /* magboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775E8B62160B828A00E372DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		775E8B64160B828A00E372DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,8 +67,6 @@
 		775E8B8A160B828A00E372DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		775E8B8C160B828A00E372DC /* magboardTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = magboardTests.h; sourceTree = "<group>"; };
 		775E8B8D160B828A00E372DC /* magboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = magboardTests.m; sourceTree = "<group>"; };
-		77AD8BD716183D6E006B00F2 /* CouchCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchCocoa.framework; path = Frameworks/CouchCocoa.framework; sourceTree = "<group>"; };
-		77AD8BD816183D6E006B00F2 /* TouchDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TouchDB.framework; path = Frameworks/TouchDB.framework; sourceTree = "<group>"; };
 		77AD8BDB16183E5C006B00F2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		77AD8BDD16183E69006B00F2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		77AD8BDF16183E75006B00F2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -92,8 +90,6 @@
 		898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroupViewController.m; sourceTree = "<group>"; };
 		89B25DF01617F6C2004C5631 /* DumbyDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DumbyDatabase.h; sourceTree = "<group>"; };
 		89B25DF11617F6C2004C5631 /* DumbyDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DumbyDatabase.m; sourceTree = "<group>"; };
-		89B25E2316185197004C5631 /* CouchCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchCocoa.framework; path = ../frameworks/CouchCocoa.framework; sourceTree = "<group>"; };
-		89B25E2416185197004C5631 /* TouchDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TouchDB.framework; path = ../frameworks/TouchDB.framework; sourceTree = "<group>"; };
 		89EBA09D1611B513006ED1F4 /* MarkerPenGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerPenGroupViewController.h; sourceTree = "<group>"; };
 		89EBA09E1611B513006ED1F4 /* MarkerPenGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerPenGroupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,13 +104,11 @@
 				77AD8BE016183E75006B00F2 /* SystemConfiguration.framework in Frameworks */,
 				77AD8BDE16183E69006B00F2 /* Security.framework in Frameworks */,
 				77AD8BDC16183E5C006B00F2 /* CFNetwork.framework in Frameworks */,
-				77AD8BD916183D6E006B00F2 /* CouchCocoa.framework in Frameworks */,
-				77AD8BDA16183D6E006B00F2 /* TouchDB.framework in Frameworks */,
 				775E8B63160B828A00E372DC /* UIKit.framework in Frameworks */,
 				775E8B65160B828A00E372DC /* Foundation.framework in Frameworks */,
 				775E8B67160B828A00E372DC /* CoreGraphics.framework in Frameworks */,
-				89B25E2516185197004C5631 /* CouchCocoa.framework in Frameworks */,
-				89B25E2616185197004C5631 /* TouchDB.framework in Frameworks */,
+				7736CF1F162304BC00173C17 /* CouchCocoa.framework in Frameworks */,
+				7736CF20162304BC00173C17 /* TouchDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,15 +147,13 @@
 		775E8B61160B828A00E372DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7736CF1D162304BC00173C17 /* CouchCocoa.framework */,
+				7736CF1E162304BC00173C17 /* TouchDB.framework */,
 				77AD8BE316183E93006B00F2 /* libz.dylib */,
 				77AD8BE116183E87006B00F2 /* libsqlite3.dylib */,
 				77AD8BDF16183E75006B00F2 /* SystemConfiguration.framework */,
 				77AD8BDD16183E69006B00F2 /* Security.framework */,
 				77AD8BDB16183E5C006B00F2 /* CFNetwork.framework */,
-				77AD8BD716183D6E006B00F2 /* CouchCocoa.framework */,
-				77AD8BD816183D6E006B00F2 /* TouchDB.framework */,
-				89B25E2316185197004C5631 /* CouchCocoa.framework */,
-				89B25E2416185197004C5631 /* TouchDB.framework */,
 				775E8B62160B828A00E372DC /* UIKit.framework */,
 				775E8B64160B828A00E372DC /* Foundation.framework */,
 				775E8B66160B828A00E372DC /* CoreGraphics.framework */,
@@ -467,6 +459,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../frameworks\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "magboard/magboard-Prefix.pch";
@@ -483,6 +476,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../frameworks\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "magboard/magboard-Prefix.pch";
