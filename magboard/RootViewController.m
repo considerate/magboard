@@ -94,6 +94,8 @@
     @{ @"type" : @"groupType", @"name" : @"people" },
     @{ @"type" : @"groupType", @"name" : @"projects" }
     ];
+    NSMutableArray *groupTypeDocs = [[NSMutableArray alloc] init];
+    __block int groupTypesSaved = 0;
     for (NSDictionary *groupTypeDictionary in groupTypes) {
         // Create the new document's properties:
         NSDictionary *inDocument = groupTypeDictionary;
@@ -101,49 +103,69 @@
         // Save the document, asynchronously:
         CouchDocument* doc = [_database untitledDocument];
         RESTOperation* op = [doc putProperties:inDocument];
-        [op onCompletion: ^{}];
-        [op start];
-    }
-    
-    // Populate groups
-    NSArray *groups = @[
-    // People
-    @{ @"type" : @"group", @"name" : @"Harry" },
-    @{ @"type" : @"group", @"name" : @"Bob" },
-    // Projects
-    @{ @"type" : @"group", @"name" : @"Japanese" },
-    @{ @"type" : @"group", @"name" : @"Cleaning" }
-    ];
-    for (NSDictionary *groupDictionary in groups) {
-        // Create the new document's properties:
-        NSDictionary *inDocument = groupDictionary;
-        
-        // Save the document, asynchronously:
-        CouchDocument* doc = [_database untitledDocument];
-        RESTOperation* op = [doc putProperties:inDocument];
-        [op onCompletion: ^{}];
-        [op start];
-    }
-    
-    // Populate tasks
-    NSArray *tasks = @[
-    // Japanese tasks
-    @{ @"type" : @"task", @"name" : @"Shukudai", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:100000000]] },
-    @{ @"type" : @"task", @"name" : @"Kanji Practice", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:200000000]] },
-    @{ @"type" : @"task", @"name" : @"Flashcards", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:300000000]] },
-    // Cleaning tasks
-    @{ @"type" : @"task", @"name" : @"Vacuuming", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:400000000]] },
-    @{ @"type" : @"task", @"name" : @"Washing up", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:500000000]] },
-    @{ @"type" : @"task", @"name" : @"Dusting", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:600000000]] }
-    ];
-    for (NSDictionary *taskDictionary in tasks) {
-        // Create the new document's properties:
-        NSDictionary *inDocument = taskDictionary;
-        
-        // Save the document, asynchronously:
-        CouchDocument* doc = [_database untitledDocument];
-        RESTOperation* op = [doc putProperties:inDocument];
-        [op onCompletion: ^{}];
+        [op onCompletion: ^{
+            NSLog(@"saved groupType: %@, with ID: %@",[doc propertyForKey:@"name"],[doc documentID]);
+            [groupTypeDocs addObject:doc];
+            
+            // Creation of groups is dependent of groupTypes having IDs
+            groupTypesSaved++;
+            if (groupTypesSaved == [groupTypes count]) {
+                
+                // Populate groups
+                NSArray *groups = @[
+                // People
+                @{ @"type" : @"group", @"name" : @"Harry", @"groupTypeID" : [[groupTypeDocs objectAtIndex:0] documentID] },
+                @{ @"type" : @"group", @"name" : @"Bob", @"groupTypeID" : [[groupTypeDocs objectAtIndex:0] documentID] },
+                // Projects
+                @{ @"type" : @"group", @"name" : @"Japanese", @"groupTypeID" : [[groupTypeDocs objectAtIndex:1] documentID] },
+                @{ @"type" : @"group", @"name" : @"Cleaning", @"groupTypeID" : [[groupTypeDocs objectAtIndex:1] documentID] }
+                ];
+                NSMutableArray *groupDocs = [[NSMutableArray alloc] init];
+                __block int groupsSaved = 0;
+                for (NSDictionary *groupDictionary in groups) {
+                    // Create the new document's properties:
+                    NSDictionary *inDocument = groupDictionary;
+                    
+                    // Save the document, asynchronously:
+                    CouchDocument* doc = [_database untitledDocument];
+                    RESTOperation* op = [doc putProperties:inDocument];
+                    [op onCompletion: ^{
+                        NSLog(@"saved group: %@, with ID: %@, and groupTypeID: %@",[doc propertyForKey:@"name"],[doc documentID],[doc propertyForKey:@"groupTypeID"]);
+                        [groupDocs addObject:doc];
+                        
+                        // Creation of tasks is dependent of groups having IDs
+                        groupsSaved++;
+                        if (groupsSaved == [groups count]) {
+                            
+                            // Populate tasks
+                            NSArray *tasks = @[
+                            // Japanese tasks
+                            @{ @"type" : @"task", @"name" : @"Shukudai", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:100000000]], @"groupIDs" : [[NSArray arrayWithObjects:[[groupDocs objectAtIndex:0] documentID], [[groupDocs objectAtIndex:2] documentID], nil] componentsJoinedByString:@","] },
+                            @{ @"type" : @"task", @"name" : @"Kanji Practice", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:200000000]], @"groupIDs" : [[NSArray arrayWithObjects:[[groupDocs objectAtIndex:0] documentID], [[groupDocs objectAtIndex:2] documentID], nil] componentsJoinedByString:@","] },
+                            @{ @"type" : @"task", @"name" : @"Flashcards", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:300000000]], @"groupIDs" : [[NSArray arrayWithObjects:[[groupDocs objectAtIndex:1] documentID], [[groupDocs objectAtIndex:2] documentID], nil] componentsJoinedByString:@","] },
+                            // Cleaning tasks
+                            @{ @"type" : @"task", @"name" : @"Vacuuming", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:400000000]], @"groupIDs" : [[NSArray arrayWithObjects:[[groupDocs objectAtIndex:0] documentID], [[groupDocs objectAtIndex:3] documentID], nil] componentsJoinedByString:@","] },
+                            @{ @"type" : @"task", @"name" : @"Washing up", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:500000000]], @"groupIDs" : [[NSArray arrayWithObjects:[[groupDocs objectAtIndex:0] documentID], [[groupDocs objectAtIndex:3] documentID], nil] componentsJoinedByString:@","] },
+                            @{ @"type" : @"task", @"name" : @"Dusting", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:600000000]], @"groupIDs" : [[NSArray arrayWithObjects:[[groupDocs objectAtIndex:1] documentID], [[groupDocs objectAtIndex:3] documentID], nil] componentsJoinedByString:@","] }
+                            ];
+                            for (NSDictionary *taskDictionary in tasks) {
+                                // Create the new document's properties:
+                                NSDictionary *inDocument = taskDictionary;
+                                
+                                // Save the document, asynchronously:
+                                CouchDocument* doc = [_database untitledDocument];
+                                RESTOperation* op = [doc putProperties:inDocument];
+                                [op onCompletion: ^{
+                                    NSLog(@"saved task: %@, with groupIDs: %@",[doc propertyForKey:@"name"],[doc propertyForKey:@"groupIDs"]);
+                                }];
+                                [op start];
+                            }
+                        }
+                    }];
+                    [op start];
+                }
+            }
+        }];
         [op start];
     }
 }
