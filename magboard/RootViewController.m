@@ -36,16 +36,10 @@
 {
     _database = database;
     
-    // Create a 'view' containing list groupTypes sorted alphabetically:
-    CouchDesignDocument* designDoc = [_database designDocumentWithName: @"tasks"];
-    [designDoc defineViewNamed: @"groupByName" mapBlock: MAPBLOCK({
-        if ([[doc objectForKey:@"type"] isEqualToString:@"groupType"]) {
-            id name = [doc objectForKey: @"name"];
-            if (name) emit(name, doc);
-        }
-    }) version: @"1.0"];
     
-    // and a validation function requiring parseable names:
+    
+    // Define design document for all data and the corresponding validation function requiring parseable names:
+    CouchDesignDocument* designDoc = [_database designDocumentWithName: @"tasks"];
     designDoc.validationBlock = VALIDATIONBLOCK({
         if (newRevision.deleted)
             return YES;
@@ -58,6 +52,14 @@
         }
         return YES;
     });
+    
+    // Create a 'view' containing list groupTypes sorted alphabetically:
+    [designDoc defineViewNamed: @"groupByName" mapBlock: MAPBLOCK({
+        if ([[doc objectForKey:@"type"] isEqualToString:@"groupType"]) {
+            id name = [doc objectForKey: @"name"];
+            if (name) emit(name, doc);
+        }
+    }) version: @"1.0"];
     
     // Create a 'view' containing list groups sorted by typeID:
     [designDoc defineViewNamed: @"groupByTypeID" mapBlock: MAPBLOCK({
