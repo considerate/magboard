@@ -57,7 +57,6 @@
             return NO;
         }
         return YES;
-        return YES;
     });
     
     // Create a 'view' containing list groups sorted by typeID:
@@ -68,13 +67,26 @@
         }
     }) version: @"1.0"];
     
-
+    
     
     // Create a 'view' containing a list of tasks sorted by creationDate:
     [designDoc defineViewNamed: @"taskByDate" mapBlock: MAPBLOCK({
         if ([[doc objectForKey:@"type"] isEqualToString:@"task"]) {
             id creationDate = [doc objectForKey: @"creationDate"];
             if (creationDate) emit(creationDate, doc);
+        }
+    }) version: @"1.0"];
+    
+    
+    
+    // Create a 'view' containing a list of tasks sorted by groups:
+    [designDoc defineViewNamed: @"taskByGroupID" mapBlock: MAPBLOCK({
+        if ([[doc objectForKey:@"type"] isEqualToString:@"task"]) {
+            // Tasks are listed for as many groups are they are part of
+            NSArray *groupIDs = [(NSString *)[doc objectForKey:@"groupIDs"] componentsSeparatedByString:@","];
+            for (id groupID in groupIDs) {
+                emit(groupID, doc);
+            }
         }
     }) version: @"1.0"];
     
@@ -190,45 +202,6 @@
     for (NSUInteger i=0; i<[groupsToDisplay count]; i++) {
         NSUInteger groupID = [[[groupsToDisplay objectAtIndex:i] objectForKey:@"id"] unsignedIntegerValue];
         [self makeControllerForGroupID:groupID atIndex:i];
-    }
-    
-    // Setup queries if database is connected.
-    NSAssert(_database!=nil, @"Not hooked up to database yet");
-    
-    
-    CouchDesignDocument* design = [_database designDocumentWithName: @"tasks"];
-    
-    
-    // Create a GroupType query sorted by ascending name:
-    _allGroupTypesQuery = [design queryViewNamed: @"groupByName"];
-    _allGroupTypesQuery.descending = NO;
-    
-    // Create a Group query sorted by ascending typeID:
-    _allGroupsQuery = [design queryViewNamed: @"groupByTypeID"];
-    _allGroupsQuery.descending = NO;
-    
-    // Create a Task query sorted by descending creationDate:
-    _allTasksQuery = [design queryViewNamed: @"taskByDate"];
-    _allTasksQuery.descending = YES;
-    
-    // Log all data
-    CouchQuery *allDocuments = [_database getAllDocuments];
-    NSLog(@"total documents: %i",[allDocuments.rows count]);
-    NSLog(@"groupTypes:%i groups:%i tasks:%i",
-          [_allGroupTypesQuery.rows count],
-          [_allGroupsQuery.rows count],
-          [_allTasksQuery.rows count]);
-    for (CouchQueryRow *row in _allGroupTypesQuery.rows) {
-        CouchDocument *doc = row.document;
-        NSLog(@"groupType ID: %@ name: %@", doc.documentID, [doc propertyForKey:@"name"]);
-    }
-    for (CouchQueryRow *row in _allGroupsQuery.rows) {
-        CouchDocument *doc = row.document;
-        NSLog(@"group ID: %@ name: %@", doc.documentID, [doc propertyForKey:@"name"]);
-    }
-    for (CouchQueryRow *row in _allTasksQuery.rows) {
-        CouchDocument *doc = row.document;
-        NSLog(@"task ID: %@ name: %@", doc.documentID, [doc propertyForKey:@"name"]);
     }
     
 }

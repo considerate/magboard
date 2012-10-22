@@ -14,9 +14,6 @@
 @interface RootViewController : UIViewController {
     @private
     CouchDatabase *_database;
-    CouchQuery *_allGroupTypesQuery;
-    CouchQuery *_allGroupsQuery;
-    CouchQuery *_allTasksQuery;
 }
 
 @property (nonatomic, retain) DumbyDatabase *database;
