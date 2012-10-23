@@ -23,6 +23,7 @@
 
 @synthesize database = __database;
 @synthesize sortByGroupTypeID = __sortByGroupTypeID;
+@synthesize displayingGroupsWithTypeID = __displayingGroupsWithTypeID;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -166,6 +167,7 @@
                             @{ @"type" : @"task", @"name" : @"Washing up", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:500000000]], @"groupIDs" : [[NSArray arrayWithObjects:[[groupDocs objectAtIndex:0] documentID], [[groupDocs objectAtIndex:3] documentID], nil] componentsJoinedByString:@","] },
                             @{ @"type" : @"task", @"name" : @"Dusting", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:600000000]], @"groupIDs" : [[NSArray arrayWithObjects:[[groupDocs objectAtIndex:1] documentID], [[groupDocs objectAtIndex:3] documentID], nil] componentsJoinedByString:@","] }
                             ];
+                            __block int TasksSaved = 0;
                             for (NSDictionary *taskDictionary in tasks) {
                                 // Create the new document's properties:
                                 NSDictionary *inDocument = taskDictionary;
@@ -175,6 +177,11 @@
                                 RESTOperation* op = [doc putProperties:inDocument];
                                 [op onCompletion: ^{
                                     NSLog(@"saved task: %@, with groupIDs: %@",[doc propertyForKey:@"name"],[doc propertyForKey:@"groupIDs"]);
+                                    // Update display after final data entry.
+                                    if (TasksSaved == [tasks count]) {
+                                        // Display groups for first listed GroupType;
+                                        self.displayingGroupsWithTypeID = [[groupTypeDocs objectAtIndex:0] documentID];
+                                    }
                                 }];
                                 [op start];
                             }
@@ -185,6 +192,15 @@
             }
         }];
         [op start];
+    }
+}
+
+- (void)setDisplayingGroupsWithTypeID:(NSString *)displayingGroupsWithTypeID
+{
+    // Only update display if groupTypeID has changed
+    if (__displayingGroupsWithTypeID != displayingGroupsWithTypeID) {
+        __displayingGroupsWithTypeID = displayingGroupsWithTypeID;
+        [self updateDisplay];
     }
 }
 

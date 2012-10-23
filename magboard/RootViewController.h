@@ -18,6 +18,7 @@
 
 @property (nonatomic, retain) DumbyDatabase *database;
 @property (nonatomic, assign) NSUInteger sortByGroupTypeID;
+@property (nonatomic, retain) NSString *displayingGroupsWithTypeID;
 
 - (void)useDatabase: (CouchDatabase *)database;
 - (void)updateDisplay;
