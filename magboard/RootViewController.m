@@ -13,6 +13,8 @@
 #import "NewGroupTypeViewController.h"
 #import <CouchCocoa/CouchDesignDocument_Embedded.h>
 
+#define PREPOPULATE_DATABASE YES
+
 @interface RootViewController ()
 
 @end
@@ -93,7 +95,9 @@
     }) version: @"1.0"];
     
     
+#ifdef PREPOPULATE_DATABASE
     [self populateDatabase];
+#endif
 }
 
 - (void)populateDatabase
@@ -192,6 +196,9 @@
     // Load in groupTypes from persistent store.
     self.database = [[DumbyDatabase alloc] init];
     
+    // Only set sortByGroupType and update display if using previous persistent data. Prepopulation happens asynchronously and might not be ready. Else these actions are triggered at the end of prepopulation. This can be later refactored into observers on a live query.
+#ifndef PREPOPULATE_DATABASE
+    
     // If it exists set the first GroupType as sortByType
     NSArray *groupTypes = [self.database groupTypes];
     if ([groupTypes count]>0) {
@@ -199,13 +206,20 @@
         self.sortByGroupTypeID = [groupTypeID unsignedIntegerValue];
     }
     
+    [self updateDisplay];
+    
+#endif
+    
+}
+
+- (void)updateDisplay
+{
     // Display groups and add contollers
     NSArray *groupsToDisplay = [self.database groupsForGroupTypeID:self.sortByGroupTypeID];
     for (NSUInteger i=0; i<[groupsToDisplay count]; i++) {
         NSUInteger groupID = [[[groupsToDisplay objectAtIndex:i] objectForKey:@"id"] unsignedIntegerValue];
         [self makeControllerForGroupID:groupID atIndex:i];
     }
-    
 }
 
 

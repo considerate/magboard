@@ -20,6 +20,7 @@
 @property (nonatomic, assign) NSUInteger sortByGroupTypeID;
 
 - (void)useDatabase: (CouchDatabase *)database;
+- (void)updateDisplay;
 - (void)makeControllerForGroupID: (NSUInteger)groupID atIndex: (NSUInteger)index;
 
 @end
