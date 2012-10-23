@@ -64,10 +64,10 @@
         }
     }) version: @"1.0"];
     
-    // Create a 'view' containing list groups sorted by typeID:
-    [designDoc defineViewNamed: @"groupByTypeID" mapBlock: MAPBLOCK({
+    // Create a 'view' containing list groups sorted by groupTypeID:
+    [designDoc defineViewNamed: @"groupByGroupTypeID" mapBlock: MAPBLOCK({
         if ([[doc objectForKey:@"type"] isEqualToString:@"group"]) {
-            id typeID = [doc objectForKey: @"typeID"];
+            id typeID = [doc objectForKey: @"groupTypeID"];
             if (typeID) emit(typeID, doc);
         }
     }) version: @"1.0"];
@@ -167,7 +167,7 @@
                             @{ @"type" : @"task", @"name" : @"Washing up", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:500000000]], @"groupIDs" : [[NSArray arrayWithObjects:[[groupDocs objectAtIndex:0] documentID], [[groupDocs objectAtIndex:3] documentID], nil] componentsJoinedByString:@","] },
                             @{ @"type" : @"task", @"name" : @"Dusting", @"creationDate" : [RESTBody JSONObjectWithDate:[NSDate dateWithTimeIntervalSince1970:600000000]], @"groupIDs" : [[NSArray arrayWithObjects:[[groupDocs objectAtIndex:1] documentID], [[groupDocs objectAtIndex:3] documentID], nil] componentsJoinedByString:@","] }
                             ];
-                            __block int TasksSaved = 0;
+                            __block int tasksSaved = 0;
                             for (NSDictionary *taskDictionary in tasks) {
                                 // Create the new document's properties:
                                 NSDictionary *inDocument = taskDictionary;
@@ -178,7 +178,8 @@
                                 [op onCompletion: ^{
                                     NSLog(@"saved task: %@, with groupIDs: %@",[doc propertyForKey:@"name"],[doc propertyForKey:@"groupIDs"]);
                                     // Update display after final data entry.
-                                    if (TasksSaved == [tasks count]) {
+                                    tasksSaved++;
+                                    if (tasksSaved == [tasks count]) {
                                         // Display groups for first listed GroupType;
                                         self.displayingGroupsWithTypeID = [[groupTypeDocs objectAtIndex:0] documentID];
                                     }
@@ -230,12 +231,12 @@
 
 - (void)updateDisplay
 {
-    // Display groups and add contollers
-    NSArray *groupsToDisplay = [self.database groupsForGroupTypeID:self.sortByGroupTypeID];
-    for (NSUInteger i=0; i<[groupsToDisplay count]; i++) {
-        NSUInteger groupID = [[[groupsToDisplay objectAtIndex:i] objectForKey:@"id"] unsignedIntegerValue];
-        [self makeControllerForGroupID:groupID atIndex:i];
-    }
+    // Query for groups for specified groupType
+    CouchQuery *query = [[_database designDocumentWithName:@"tasks"] queryViewNamed:@"groupByGroupTypeID"];
+    query.startKey = self.displayingGroupsWithTypeID;
+    query.endKey = self.displayingGroupsWithTypeID;
+    [query start];
+    NSLog(@"group to display: %i",[query.rows count]);
 }
 
 
