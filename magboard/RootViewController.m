@@ -57,7 +57,7 @@
     });
     
     // Create a 'view' containing list groupTypes sorted alphabetically:
-    [designDoc defineViewNamed: @"groupByName" mapBlock: MAPBLOCK({
+    [designDoc defineViewNamed: @"groupTypeByName" mapBlock: MAPBLOCK({
         if ([[doc objectForKey:@"type"] isEqualToString:@"groupType"]) {
             id name = [doc objectForKey: @"name"];
             if (name) emit(name, doc);
@@ -210,24 +210,25 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    // Load in groupTypes from persistent store.
-    self.database = [[DumbyDatabase alloc] init];
+    groupViewControllers = [[NSMutableArray alloc] init];
     
     // Only set sortByGroupType and update display if using previous persistent data. Prepopulation happens asynchronously and might not be ready. Else these actions are triggered at the end of prepopulation. This can be later refactored into observers on a live query.
 #ifndef PREPOPULATE_DATABASE
     
     // If it exists set the first GroupType as sortByType
-    NSArray *groupTypes = [self.database groupTypes];
-    if ([groupTypes count]>0) {
-        NSNumber *groupTypeID = [[groupTypes objectAtIndex:0] objectForKey:@"id"];
-        self.sortByGroupTypeID = [groupTypeID unsignedIntegerValue];
+    CouchQuery *query = [[_database designDocumentWithName:@"tasks"] queryViewNamed:@"groupTypeByName"];
+    [query start];
+    if ([query.rows count] > 0) {
+        self.displayingGroupsWithTypeID = [[query.rows rowAtIndex:0] documentID];
     }
-    
-    [self updateDisplay];
     
 #endif
     
 }
+
+
+#define GROUP_VIEW_DIAMETER 140.0f
+#define GROUP_VIEW_SPACING 150.0f
 
 - (void)updateDisplay
 {
@@ -236,14 +237,25 @@
     query.startKey = self.displayingGroupsWithTypeID;
     query.endKey = self.displayingGroupsWithTypeID;
     [query start];
-    NSLog(@"group to display: %i",[query.rows count]);
+    
+    
+    // Build controllers (later only build if they don't already exist)
+    for (CouchQueryRow *row in query.rows) {
+        [self makeControllerWithGroupID:row.documentID];
+    }
+    
+    // Arrange controllers on the screen and add the view hierarchy
+    for (int i=0; i<[groupViewControllers count]; i++) {
+        UIView *view = [[groupViewControllers objectAtIndex:i] view];
+        int x = i%2;
+        int y = i/2;
+        CGRect frame = CGRectMake(x*GROUP_VIEW_SPACING+10.0f, y*GROUP_VIEW_SPACING+80.0f, GROUP_VIEW_DIAMETER, GROUP_VIEW_DIAMETER);
+        view.frame = frame;
+        [self.view addSubview:view];
+    }
 }
 
-
-#define GROUP_VIEW_DIAMETER 140.0f
-#define GROUP_VIEW_SPACING 150.0f
-
-- (void)makeControllerForGroupID: (NSUInteger)groupID atIndex: (NSUInteger)index
+/*- (void)makeControllerForGroupID: (NSUInteger)groupID atIndex: (NSUInteger)index
 {
     MarkerPenGroupViewController *controller = [[MarkerPenGroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
     controller.database = self.database;
@@ -259,6 +271,15 @@
     controller.view.frame = frame;
     
     [self.view addSubview:controller.view];
+}*/
+
+- (void)makeControllerWithGroupID:(NSString *)groupID
+{
+    MarkerPenGroupViewController *controller = [[MarkerPenGroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
+    controller.database = _database;
+    controller.groupID = groupID;
+    [self addChildViewController:controller];
+    [groupViewControllers addObject:controller];
 }
 
 

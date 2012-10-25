@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DumbyDatabase.h"
+#import <CouchCocoa/CouchCocoa.h>
 
 @interface MarkerPenGroupViewController : UIViewController {
     IBOutlet UILabel *nameLabel;
 }
 
-@property (nonatomic, assign) NSUInteger groupID;
-@property (nonatomic, retain) DumbyDatabase *database;
+@property (nonatomic, retain) NSString *groupID;
+@property (nonatomic, retain) CouchDatabase *database;
 
 - (void)makeViewForTask: (NSUInteger)taskID atIndex: (NSUInteger)index;
 

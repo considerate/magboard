@@ -14,6 +14,7 @@
 @interface RootViewController : UIViewController {
     @private
     CouchDatabase *_database;
+    NSMutableArray *groupViewControllers;
 }
 
 @property (nonatomic, retain) DumbyDatabase *database;
@@ -22,6 +23,6 @@
 
 - (void)useDatabase: (CouchDatabase *)database;
 - (void)updateDisplay;
-- (void)makeControllerForGroupID: (NSUInteger)groupID atIndex: (NSUInteger)index;
+- (void)makeControllerWithGroupID: (NSString *)groupID;
 
 @end

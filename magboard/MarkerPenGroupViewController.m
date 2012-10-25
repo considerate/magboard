@@ -32,14 +32,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSDictionary *group = [self.database groupForID:self.groupID];
-    [nameLabel setText:[group objectForKey:@"name"]];
+    CouchDocument *groupDoc = [self.database documentWithID:self.groupID];
+    [nameLabel setText:[groupDoc propertyForKey:@"name"]];
     
-    NSArray *tasksToDisplay = [self.database tasksForGroupID:self.groupID];
+    /*NSArray *tasksToDisplay = [self.database tasksForGroupID:self.groupID];
     for (NSUInteger i=0; i<[tasksToDisplay count]; i++) {
         NSUInteger taskID = [[[tasksToDisplay objectAtIndex:i] objectForKey:@"id"] unsignedIntegerValue];
         [self makeViewForTask:taskID atIndex:i];
-    }
+    }*/
 }
 
 - (void)viewDidUnload
@@ -59,7 +59,7 @@
 - (void)makeViewForTask: (NSUInteger)taskID atIndex: (NSUInteger)index
 {
     // Calculate column and row
-    int arrayIndex = index;
+    /*int arrayIndex = index;
     int x = arrayIndex%2;
     int y = arrayIndex/2;
     CGRect frame = CGRectMake(x*TASK_VIEW_SPACING + 8.0f,
@@ -71,7 +71,7 @@
     MagnetView *taskView = [[MagnetView alloc] initWithFrame:frame];
     [taskView setLabel:[task objectForKey:@"name"]];
     
-    [self.view addSubview:taskView];
+    [self.view addSubview:taskView];*/
 }
 
 @end
