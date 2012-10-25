@@ -27,6 +27,9 @@
     return self;
 }
 
+#define TASK_VIEW_DIAMETER 60.0f
+#define TASK_VIEW_SPACING 64.0f
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,11 +38,27 @@
     CouchDocument *groupDoc = [self.database documentWithID:self.groupID];
     [nameLabel setText:[groupDoc propertyForKey:@"name"]];
     
-    /*NSArray *tasksToDisplay = [self.database tasksForGroupID:self.groupID];
-    for (NSUInteger i=0; i<[tasksToDisplay count]; i++) {
-        NSUInteger taskID = [[[tasksToDisplay objectAtIndex:i] objectForKey:@"id"] unsignedIntegerValue];
-        [self makeViewForTask:taskID atIndex:i];
-    }*/
+    // Retrieve tasks for group
+    CouchQuery *tasksQuery = [[self.database designDocumentWithName:@"tasks"] queryViewNamed:@"taskByGroupID"];
+    tasksQuery.startKey = self.groupID;
+    tasksQuery.endKey = self.groupID;
+    [tasksQuery start];
+    
+    for (NSUInteger i=0; i<[tasksQuery.rows count]; i++) {
+        CouchDocument *taskDoc = [[tasksQuery.rows rowAtIndex:i] document];
+        
+        int x = i%2;
+        int y = i/2;
+        CGRect frame = CGRectMake(x*TASK_VIEW_SPACING + 8.0f,
+                                  y*TASK_VIEW_SPACING + 8.0f,
+                                  TASK_VIEW_DIAMETER,
+                                  TASK_VIEW_DIAMETER);
+        
+        MagnetView *taskView = [[MagnetView alloc] initWithFrame:frame];
+        [taskView setLabel:[taskDoc propertyForKey:@"name"]];
+        
+        [self.view addSubview:taskView];
+    }
 }
 
 - (void)viewDidUnload
@@ -52,9 +71,6 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-#define TASK_VIEW_DIAMETER 60.0f
-#define TASK_VIEW_SPACING 64.0f
 
 - (void)makeViewForTask: (NSUInteger)taskID atIndex: (NSUInteger)index
 {
