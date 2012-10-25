@@ -21,7 +21,6 @@
 
 @implementation RootViewController
 
-@synthesize database = __database;
 @synthesize sortByGroupTypeID = __sortByGroupTypeID;
 @synthesize displayingGroupsWithTypeID = __displayingGroupsWithTypeID;
 

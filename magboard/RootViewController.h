@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DumbyDatabase.h"
 #import <CouchCocoa/CouchCocoa.h>
 #import <CouchCocoa/CouchTouchDBServer.h>
 
@@ -17,7 +16,6 @@
     NSMutableArray *groupViewControllers;
 }
 
-@property (nonatomic, retain) DumbyDatabase *database;
 @property (nonatomic, assign) NSUInteger sortByGroupTypeID;
 @property (nonatomic, retain) NSString *displayingGroupsWithTypeID;
 
