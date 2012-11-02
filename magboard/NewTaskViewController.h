@@ -8,15 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewTaskViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
-    
-    IBOutlet UITextField *textField;
-    IBOutlet UIPickerView *pickerView;
-    
-    NSArray *groupsForSortingType;
+@interface NewTaskViewController : UITableViewController <UITextFieldDelegate> {
 }
 
-- (IBAction)addTask:(id)sender;
+- (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
 
 @end

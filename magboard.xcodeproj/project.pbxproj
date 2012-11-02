@@ -34,6 +34,7 @@
 		8917F005160EBD6F0063E9C5 /* MarkerPenGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8917F004160EBD6F0063E9C5 /* MarkerPenGroupView.m */; };
 		898E7B00160EE86A0065FA4E /* NewGroupTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898E7AFF160EE86A0065FA4E /* NewGroupTypeViewController.m */; };
 		898E7B03160EFD7A0065FA4E /* NewGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */; };
+		89AA947F164356260071A0DE /* AssignGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89AA947E164356260071A0DE /* AssignGroupsViewController.m */; };
 		89EBA09F1611B513006ED1F4 /* MarkerPenGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EBA09E1611B513006ED1F4 /* MarkerPenGroupViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,8 @@
 		898E7AFF160EE86A0065FA4E /* NewGroupTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroupTypeViewController.m; sourceTree = "<group>"; };
 		898E7B01160EFD790065FA4E /* NewGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGroupViewController.h; sourceTree = "<group>"; };
 		898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroupViewController.m; sourceTree = "<group>"; };
+		89AA947D164356260071A0DE /* AssignGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignGroupsViewController.h; sourceTree = "<group>"; };
+		89AA947E164356260071A0DE /* AssignGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignGroupsViewController.m; sourceTree = "<group>"; };
 		89EBA09D1611B513006ED1F4 /* MarkerPenGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerPenGroupViewController.h; sourceTree = "<group>"; };
 		89EBA09E1611B513006ED1F4 /* MarkerPenGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerPenGroupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +239,8 @@
 				898E7B01160EFD790065FA4E /* NewGroupViewController.h */,
 				898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */,
 				891744AD160F3500000CBB62 /* NewTaskViewController.h */,
+				89AA947D164356260071A0DE /* AssignGroupsViewController.h */,
+				89AA947E164356260071A0DE /* AssignGroupsViewController.m */,
 				891744AE160F3500000CBB62 /* NewTaskViewController.m */,
 			);
 			name = "Modal View Controllers";
@@ -359,6 +364,7 @@
 				898E7B03160EFD7A0065FA4E /* NewGroupViewController.m in Sources */,
 				891744AF160F3500000CBB62 /* NewTaskViewController.m in Sources */,
 				89EBA09F1611B513006ED1F4 /* MarkerPenGroupViewController.m in Sources */,
+				89AA947F164356260071A0DE /* AssignGroupsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
