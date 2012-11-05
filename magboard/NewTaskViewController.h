@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CouchCocoa/CouchCocoa.h>
 
-@interface NewTaskViewController : UITableViewController <UITextFieldDelegate> {
-}
+@interface NewTaskViewController : UITableViewController <UITextFieldDelegate>
+
+@property CouchDatabase *database;
 
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;

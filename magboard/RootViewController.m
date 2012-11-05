@@ -10,7 +10,7 @@
 #import "MarkerPenGroupView.h"
 #import "MagnetView.h"
 #import "MarkerPenGroupViewController.h"
-#import "NewGroupTypeViewController.h"
+#import "NewTaskViewController.h"
 #import <CouchCocoa/CouchDesignDocument_Embedded.h>
 
 #define PREPOPULATE_DATABASE YES
@@ -254,24 +254,6 @@
     }
 }
 
-/*- (void)makeControllerForGroupID: (NSUInteger)groupID atIndex: (NSUInteger)index
-{
-    MarkerPenGroupViewController *controller = [[MarkerPenGroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
-    controller.database = self.database;
-    controller.groupID = groupID;
-    [self addChildViewController:controller];
-    
-    
-    // Calculate column and row
-    int arrayIndex = index;
-    int x = arrayIndex%2;
-    int y = arrayIndex/2;
-    CGRect frame = CGRectMake(x*GROUP_VIEW_SPACING+10.0f, y*GROUP_VIEW_SPACING+80.0f, GROUP_VIEW_DIAMETER, GROUP_VIEW_DIAMETER);
-    controller.view.frame = frame;
-    
-    [self.view addSubview:controller.view];
-}*/
-
 - (void)makeControllerWithGroupID:(NSString *)groupID
 {
     MarkerPenGroupViewController *controller = [[MarkerPenGroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
@@ -299,8 +281,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     id controller = segue.destinationViewController;
-    if ([controller class] == [NewGroupTypeViewController class]) {
-        [(NewGroupTypeViewController *)controller useDatabase:_database];
+    if ([controller class] == [UINavigationController class]) {
+        id topViewController = [(UINavigationController *)controller topViewController];
+        if ([topViewController class] == [NewTaskViewController class] ) {
+            [(NewTaskViewController *)topViewController setDatabase:_database];
+        }
     }
 }
 

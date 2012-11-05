@@ -7,15 +7,15 @@
 //
 
 #import "NewTaskViewController.h"
-#import "RootViewController.h"
-//#import "Group.h"
-//#import "Task.h"
+#import "AssignGroupsViewController.h"
 
 @interface NewTaskViewController ()
 
 @end
 
 @implementation NewTaskViewController
+
+@synthesize database = __database;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +50,14 @@
 - (IBAction)cancel:(id)sender
 {
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    id controller = segue.destinationViewController;
+    if ([controller class] == [AssignGroupsViewController class]) {
+        [(AssignGroupsViewController *)controller setDatabase:self.database];
+    }
 }
 
 #pragma mark UITextFieldDelegate Methods
