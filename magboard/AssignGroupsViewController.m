@@ -16,6 +16,7 @@
 @implementation AssignGroupsViewController
 @synthesize searchDisplayController;
 @synthesize searchBar;
+@synthesize taskProperties = __taskProperties;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -49,6 +50,11 @@
     NSAssert(self.database, @"AssignGroupsViewController hasn't been passed the database");
     allItems = [[self.database designDocumentWithName:@"tasks"] queryViewNamed:@"groupByGroupTypeID"];
     [allItems start];
+    
+    // retrieve groups currently assigned to task if it exists
+    if (self.taskProperties) {
+        selectedGroupIDs = [[NSMutableArray alloc] initWithArray:[[self.taskProperties objectForKey:@"groupIDs"] componentsSeparatedByString:@","]];
+    }
     
     [super viewWillAppear:animated];
 }
@@ -90,7 +96,6 @@
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     
     CouchDocument *doc = [(CouchQueryRow *)[allItems.rows rowAtIndex:indexPath.row] document];
-    NSLog(@"cell name: %@",[doc propertyForKey:@"name"]);
     
     /* Configure the cell. */
     if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]){
@@ -100,7 +105,24 @@
     else{
         cell.name.text =
         [doc propertyForKey:@"name"];
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+        // If task exists and the group is assigned to it display checkmark
+        if (self.taskProperties) {
+            // check ID exists in in selected groups
+            NSString *groupID = [doc documentID];
+            BOOL containsID = NO;
+            for (NSString *ID in selectedGroupIDs) {
+                if ([ID isEqualToString:groupID]) {
+                    containsID = YES;
+                    break;
+                }
+            }
+            if (containsID) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
+        }
     }
     
     return cell;
@@ -149,13 +171,37 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    // If task being assigned to exists, toggle assignment of selected group
+    if (self.taskProperties) {
+        
+        // fetch ID for selected group
+        NSString *groupID = [[allItems.rows rowAtIndex:indexPath.row] documentID];
+        
+        // check ID exists in in selected groups
+        BOOL containsID = NO;
+        NSString *IDToRemove = nil;
+        for (NSString *ID in selectedGroupIDs) {
+            if ([ID isEqualToString:groupID]) {
+                containsID = YES;
+                IDToRemove = ID;
+                break;
+            }
+        }
+        // Toggle existence of ID
+        if (containsID) {
+            [selectedGroupIDs removeObject:IDToRemove];
+        } else {
+            [selectedGroupIDs addObject:groupID];
+        }
+        
+        // Update task properties
+        [self.taskProperties setValue:[selectedGroupIDs componentsJoinedByString:@","] forKey:@"groupIDs"];
+        
+        // Update table view
+        [tableView beginUpdates];
+        [tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:NO];
+        [tableView endUpdates];
+    }
 }
 
 @end

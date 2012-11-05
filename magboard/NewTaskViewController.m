@@ -16,6 +16,7 @@
 @implementation NewTaskViewController
 
 @synthesize database = __database;
+@synthesize taskProperties = __taskProperties;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,11 +30,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSAssert(self.database, @"NewTaskViewController hasn't been passed the databse.");
+    self.taskProperties = [[NSMutableDictionary alloc] init];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    self.taskProperties = nil;
     // Release any retained subviews of the main view.
 }
 
@@ -56,7 +60,9 @@
 {
     id controller = segue.destinationViewController;
     if ([controller class] == [AssignGroupsViewController class]) {
-        [(AssignGroupsViewController *)controller setDatabase:self.database];
+        AssignGroupsViewController *assignGroupsViewController = controller;
+        [assignGroupsViewController setDatabase:self.database];
+        assignGroupsViewController.taskProperties = self.taskProperties;
     }
 }
 

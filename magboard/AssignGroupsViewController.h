@@ -12,9 +12,11 @@
 @interface AssignGroupsViewController : UITableViewController {
     CouchQuery *allItems;
     NSArray *searchResults;
+    NSMutableArray *selectedGroupIDs;
 }
 @property CouchDatabase *database;
 @property (strong, nonatomic) IBOutlet UISearchDisplayController *searchDisplayController;
 @property (strong, nonatomic) IBOutlet UITableView *searchBar;
+@property (strong, nonatomic) NSDictionary *taskProperties;
 
 @end

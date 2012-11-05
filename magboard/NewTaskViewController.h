@@ -11,7 +11,8 @@
 
 @interface NewTaskViewController : UITableViewController <UITextFieldDelegate>
 
-@property CouchDatabase *database;
+@property (strong, nonatomic) CouchDatabase *database;
+@property (strong, nonatomic) NSMutableDictionary *taskProperties;
 
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
