@@ -35,6 +35,7 @@
 		898E7B00160EE86A0065FA4E /* NewGroupTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898E7AFF160EE86A0065FA4E /* NewGroupTypeViewController.m */; };
 		898E7B03160EFD7A0065FA4E /* NewGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */; };
 		89AA947F164356260071A0DE /* AssignGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89AA947E164356260071A0DE /* AssignGroupsViewController.m */; };
+		89AEEEA91646622800BF2DA4 /* GroupTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89AEEEA81646622800BF2DA4 /* GroupTableCell.m */; };
 		89EBA09F1611B513006ED1F4 /* MarkerPenGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EBA09E1611B513006ED1F4 /* MarkerPenGroupViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,8 @@
 		898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroupViewController.m; sourceTree = "<group>"; };
 		89AA947D164356260071A0DE /* AssignGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignGroupsViewController.h; sourceTree = "<group>"; };
 		89AA947E164356260071A0DE /* AssignGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignGroupsViewController.m; sourceTree = "<group>"; };
+		89AEEEA71646622800BF2DA4 /* GroupTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableCell.h; sourceTree = "<group>"; };
+		89AEEEA81646622800BF2DA4 /* GroupTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableCell.m; sourceTree = "<group>"; };
 		89EBA09D1611B513006ED1F4 /* MarkerPenGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerPenGroupViewController.h; sourceTree = "<group>"; };
 		89EBA09E1611B513006ED1F4 /* MarkerPenGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerPenGroupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +217,8 @@
 			children = (
 				890C3EA01612E740003E90E0 /* GroupView.xib */,
 				8917EFFA160EA6150063E9C5 /* iPhone.storyboard */,
+				89AEEEA71646622800BF2DA4 /* GroupTableCell.h */,
+				89AEEEA81646622800BF2DA4 /* GroupTableCell.m */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -239,9 +244,9 @@
 				898E7B01160EFD790065FA4E /* NewGroupViewController.h */,
 				898E7B02160EFD7A0065FA4E /* NewGroupViewController.m */,
 				891744AD160F3500000CBB62 /* NewTaskViewController.h */,
+				891744AE160F3500000CBB62 /* NewTaskViewController.m */,
 				89AA947D164356260071A0DE /* AssignGroupsViewController.h */,
 				89AA947E164356260071A0DE /* AssignGroupsViewController.m */,
-				891744AE160F3500000CBB62 /* NewTaskViewController.m */,
 			);
 			name = "Modal View Controllers";
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				891744AF160F3500000CBB62 /* NewTaskViewController.m in Sources */,
 				89EBA09F1611B513006ED1F4 /* MarkerPenGroupViewController.m in Sources */,
 				89AA947F164356260071A0DE /* AssignGroupsViewController.m in Sources */,
+				89AEEEA91646622800BF2DA4 /* GroupTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
